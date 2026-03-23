@@ -9,6 +9,49 @@ st.title("Registro de Vehículos - Serpost")
 # INPUTS
 # =========================
 
+administracion = st.selectbox(
+    "Administración",
+    [
+        "ABANCAY",
+        "AREQUIPA",
+        "AYACUCHO",
+        "BREÑA",
+        "CAJAMARCA",
+        "CALLAO",
+        "CERRO DE PASCO",
+        "CHACHAPOYAS",
+        "CHICLAYO",
+        "CHIMBOTE",
+        "CHOSICA",
+        "COMAS",
+        "CUSCO",
+        "HUACHO",
+        "HUANCAVELICA",
+        "HUANCAYO",
+        "HUÁNUCO",
+        "HUARAZ",
+        "ICA",
+        "INGENIERÍA",
+        "IQUITOS",
+        "JESÚS MARÍA",
+        "JULIACA",
+        "LA VICTORIA",
+        "LIMA",
+        "LINCE",
+        "MIRAFLORES",
+        "MOQUEGUA",
+        "PIURA",
+        "PUCALLPA",
+        "PUERTO MALDONADO",
+        "PUNO",
+        "TACNA",
+        "TARAPOTO",
+        "TRUJILLO",
+        "TUMBES",
+        "VMT"
+    ]
+)
+
 # Tipo de vehículo
 tipo_vehiculo = st.selectbox(
     "Tipo de vehículo",
