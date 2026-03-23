@@ -3,38 +3,76 @@ import pandas as pd
 import os
 from datetime import datetime
 
-st.title("Reporte de Incidencias - Serpost")
+st.title("Registro de Vehículos - Serpost")
 
-vehiculos = ["EJEMPLO1", "EJEMPLO2", "EJEMPLO3"]
+# =========================
+# INPUTS
+# =========================
 
-vehiculo = st.selectbox("Selecciona el vehículo", vehiculos)
-
-problema = st.selectbox(
-    "Tipo de problema",
-    ["Falla mecánica", "Accidente", "Retraso", "Documentación", "Otro"]
+# Tipo de vehículo
+tipo_vehiculo = st.selectbox(
+    "Tipo de vehículo",
+    ["MOTO", "BICICLETA", "CAMIONETA"]
 )
 
-comentario = st.text_input("Comentario (opcional)")
+# Placa
+placa = st.text_input("Placa del vehículo")
 
-if st.button("Reportar incidencia"):
+# Estado
+estado = st.selectbox(
+    "Estado del vehículo",
+    ["Operativa", "Inoperativa"]
+)
 
-    nueva_data = {
-        "Fecha": [datetime.now()],
-        "Vehiculo": [vehiculo],
-        "Problema": [problema],
-        "Comentario": [comentario]
-    }
+# Motivo si está inoperativa
+detalle = ""
 
-    df_nuevo = pd.DataFrame(nueva_data)
+if estado == "Inoperativa":
+    detalle = st.selectbox(
+        "Motivo",
+        ["Malograda", "Robada", "En mantenimiento", "Otro"]
+    )
 
-    archivo = "incidencias.xlsx"
+    if detalle == "Otro":
+        detalle = st.text_input("Especificar motivo")
 
-    if os.path.exists(archivo):
-        df_existente = pd.read_excel(archivo)
-        df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
+# =========================
+# BOTÓN
+# =========================
+
+if st.button("Registrar"):
+
+    # Validación básica
+    if placa == "":
+        st.warning("Ingresa la placa del vehículo")
     else:
-        df_final = df_nuevo
+        nueva_data = {
+            "Fecha": [datetime.now()],
+            "Tipo": [tipo_vehiculo],
+            "Placa": [placa],
+            "Estado": [estado],
+            "Detalle": [detalle]
+        }
 
-    df_final.to_excel(archivo, index=False)
+        df_nuevo = pd.DataFrame(nueva_data)
 
-    st.success(f"Incidencia guardada para {vehiculo}")
+        archivo = "vehiculos.xlsx"
+
+        if os.path.exists(archivo):
+            df_existente = pd.read_excel(archivo)
+            df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
+        else:
+            df_final = df_nuevo
+
+        df_final.to_excel(archivo, index=False)
+
+        st.success("Registro guardado correctamente")
+
+# =========================
+# MOSTRAR DATA (OPCIONAL)
+# =========================
+
+if os.path.exists("vehiculos.xlsx"):
+    st.subheader("Registros actuales")
+    df = pd.read_excel("vehiculos.xlsx")
+    st.dataframe(df)
