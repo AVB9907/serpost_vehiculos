@@ -120,7 +120,15 @@ if os.path.exists("vehiculos.xlsx"):
     df = pd.read_excel("vehiculos.xlsx")
     st.dataframe(df)
 
-if st.button("🗑️ Borrar todos los registros"):
-    if os.path.exists("vehiculos.xlsx"):
-        os.remove("vehiculos.xlsx")
-        st.success("Registros eliminados")
+password = st.text_input("🔐 Clave admin", type="password")
+
+if password:
+    if password == "serpost2025":  # tu clave real
+        st.success("Acceso concedido")
+
+        if st.button("🗑️ Borrar registros"):
+            if os.path.exists("vehiculos.xlsx"):
+                os.remove("vehiculos.xlsx")
+                st.success("Registros eliminados")
+    else:
+        st.error("Clave incorrecta")
