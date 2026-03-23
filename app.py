@@ -121,7 +121,7 @@ if password:
     if password == "068566":
         st.success("Acceso concedido")
 
-        if st.button("🗑️ Borrar registros"):
+        if st.button("Borrar registros"):
             if os.path.exists("vehiculos.xlsx"):
                 os.remove("vehiculos.xlsx")
                 st.success("Registros eliminados")
