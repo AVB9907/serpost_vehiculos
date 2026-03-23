@@ -5,7 +5,7 @@ from datetime import datetime
 
 st.title("Reporte de Incidencias - Serpost")
 
-vehiculos = ["ABC-123", "XYZ-789", "LMN-456"]
+vehiculos = ["EJEMPLO1", "EJEMPLO2", "EJEMPLO3"]
 
 vehiculo = st.selectbox("Selecciona el vehículo", vehiculos)
 
