@@ -132,20 +132,4 @@ if password:
     else:
         st.error("Clave incorrecta")
 
-import streamlit.components.v1 as components
-
-st.markdown("---")
-st.subheader("Registro de incidencia")
-
-st.markdown(
-    "Completa el formulario para registrar el estado del vehículo en tiempo real.",
-)
-
-# Centrar el formulario
-col1, col2, col3 = st.columns([1, 6, 1])
-
-with col2:
-    components.iframe(
-        "https://docs.google.com/forms/d/e/1FAIpQLSeRhSUt7CFJubWx8H6xXP5fUETwQXgklBoRSXb6pkhtViMk0A/viewform?embedded=true",
-        height=1000
-    )
+st.link_button("📋 Enviar registro", "LINK_FORM")
