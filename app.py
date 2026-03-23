@@ -112,15 +112,13 @@ if st.button("Registrar"):
         st.success("Registro guardado correctamente")
 
 # =========================
-# MOSTRAR DATA (OPCIONAL)
+# MOSTRAR DATA
 # =========================
-
-
 
 password = st.text_input(" ", type="password")
 
 if password:
-    if password == "068566":  # tu clave real
+    if password == "068566":
         st.success("Acceso concedido")
 
         if st.button("🗑️ Borrar registros"):
