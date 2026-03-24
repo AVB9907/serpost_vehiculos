@@ -58,12 +58,33 @@ if opcion == "Registrar vehículo":
     oficina = st.text_input("Oficina / Sede específica")
 
     # =========================
+    # ESTADO DEL VEHÍCULO
+    # =========================
+
+    estado = st.selectbox(
+        "Estado del vehículo",
+        ["Operativa", "Inoperativa"]
+    )
+
+    detalle = ""
+
+    if estado == "Inoperativa":
+        detalle = st.selectbox(
+            "Motivo",
+            ["Malograda", "Robada", "En reparación", "Otro"]
+        )
+
+        if detalle == "Otro":
+            detalle = st.text_input("Especificar motivo")
+
+    # =========================
     # VALIDACIÓN
     # =========================
 
     campos_completos = all([
         placa.strip() != "",
-        oficina.strip() != ""
+        oficina.strip() != "",
+        (estado == "Operativa") or (detalle.strip() != "")
     ])
 
     if not campos_completos:
@@ -82,7 +103,10 @@ if opcion == "Registrar vehículo":
                 "placa": placa,
                 "tipo": tipo_vehiculo,
                 "administracion": administracion,
-                "oficina": oficina
+                "oficina": oficina,
+                "estado": estado,
+                "detalle": detalle,
+                "fecha": str(datetime.now())
             }
 
             try:
