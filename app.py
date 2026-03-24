@@ -123,40 +123,42 @@ elif opcion == "Reportar incidencia":
 
     st.subheader("Reporte de incidencia")
 
-    # Traer vehículos desde Supabase
-    response = supabase.table("vehiculos").select("*").execute()
-    vehiculos = response.data
+    placa = st.text_input("Placa del vehículo").upper()
 
-    if not vehiculos:
-        st.warning("No hay vehículos registrados aún")
-    else:
-        placas = [v["placa"] for v in vehiculos]
+    tipo_incidente = st.selectbox(
+        "Tipo de incidencia",
+        ["Malograda", "Robada", "En mantenimiento", "Otro"]
+    )
 
-        placa_sel = st.selectbox("Seleccionar vehículo", placas)
+    detalle = tipo_incidente
 
-        estado = st.selectbox(
-            "Estado del vehículo",
-            ["Operativa", "Inoperativa"]
-        )
+    if tipo_incidente == "Otro":
+        detalle = st.text_input("Especificar incidencia")
 
-        detalle = ""
+    # =========================
+    # VALIDACIÓN
+    # =========================
 
-        if estado == "Inoperativa":
-            detalle = st.selectbox(
-                "Motivo",
-                ["Malograda", "Robada", "En mantenimiento", "Otro"]
-            )
+    campos_completos = all([
+        placa.strip() != "",
+        detalle.strip() != ""
+    ])
 
-            if detalle == "Otro":
-                detalle = st.text_input("Especificar motivo")
+    if not campos_completos:
+        st.warning("Completa todos los campos antes de reportar")
 
-        if st.button("Reportar incidencia"):
+    # =========================
+    # BOTÓN
+    # =========================
 
-            vehiculo_id = [v["id"] for v in vehiculos if v["placa"] == placa_sel][0]
+    if st.button("Reportar incidencia"):
 
+        if not campos_completos:
+            st.error("Faltan campos obligatorios")
+        else:
             data = {
-                "vehiculo_id": vehiculo_id,
-                "estado": estado,
+                "placa": placa,
+                "tipo_incidente": tipo_incidente,
                 "detalle": detalle,
                 "fecha": str(datetime.now())
             }
