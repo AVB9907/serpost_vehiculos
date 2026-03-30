@@ -22,7 +22,7 @@ if "pagina" not in st.session_state:
     
 if st.session_state.pagina == "inicio":
 
-    st.title("Sistema Logístico - Serpost")
+    st.title("Administración de Canales - Serpost")
 
     st.markdown("### Selecciona una opción")
 
