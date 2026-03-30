@@ -22,22 +22,22 @@ if "pagina" not in st.session_state:
     
 if st.session_state.pagina == "inicio":
 
-    st.title("🚚 Sistema Logístico - Serpost")
+    st.title("Sistema Logístico - Serpost")
 
     st.markdown("### Selecciona una opción")
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        if st.button("🚗 Registrar vehículo", use_container_width=True):
+        if st.button("Registrar vehículo", use_container_width=True):
             st.session_state.pagina = "registro"
 
     with col2:
-        if st.button("⚠️ Reportar incidencia", use_container_width=True):
+        if st.button("Reportar incidencia", use_container_width=True):
             st.session_state.pagina = "incidencia"
 
     with col3:
-        if st.button("🌧️ Demoras operativas", use_container_width=True):
+        if st.button("Reportar demoras", use_container_width=True):
             st.session_state.pagina = "demoras"
 elif st.session_state.pagina == "registro":
 
@@ -112,7 +112,7 @@ elif st.session_state.pagina == "registro":
                 st.error(f"Error: {e}")
 
     # BOTÓN VOLVER
-    if st.button("⬅️ Volver"):
+    if st.button("Volver"):
         st.session_state.pagina = "inicio"
 
 elif st.session_state.pagina == "incidencia":
@@ -157,7 +157,7 @@ elif st.session_state.pagina == "incidencia":
             except Exception as e:
                 st.error(f"Error: {e}")
 
-    if st.button("⬅️ Volver"):
+    if st.button("Volver"):
         st.session_state.pagina = "inicio"
 elif st.session_state.pagina == "demoras":
 
@@ -166,9 +166,9 @@ elif st.session_state.pagina == "demoras":
     st.markdown("Reporta problemas por clima, huaicos u otros eventos")
 
     st.link_button(
-        "📋 Ir al formulario de demoras",
+        "Ir al formulario de demoras",
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing&ouid=109605618064294682889"
     )
 
-    if st.button("⬅️ Volver"):
+    if st.button("Volver"):
         st.session_state.pagina = "inicio"
