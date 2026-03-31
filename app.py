@@ -16,25 +16,8 @@ st.markdown("""
     background-color: #f4f6f9;
 }
 
-/* TÍTULO */
-.titulo {
-    font-size: 56px;
-    font-weight: 800;
-    color: #1f4e79;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-/* SUBTÍTULO */
-.sub {
-    text-align: center;
-    color: #6c757d;
-    font-size: 20px;
-    margin-bottom: 40px;
-}
-
 /* BOTONES GRANDES */
-button[kind="secondary"] {
+div.stButton > button {
     height: 140px !important;
     font-size: 20px !important;
     font-weight: 600 !important;
@@ -42,13 +25,17 @@ button[kind="secondary"] {
     background-color: white !important;
     border: 1px solid #e0e0e0 !important;
     box-shadow: 0px 6px 18px rgba(0,0,0,0.08) !important;
+    transition: all 0.2s ease;
 }
 
 /* HOVER */
-button[kind="secondary"]:hover {
+div.stButton > button:hover {
     background-color: #eef3f8 !important;
     transform: translateY(-3px);
 }
+
+</style>
+""", unsafe_allow_html=True)
 
 /* BOTÓN VOLVER */
 button:has(span:contains("Volver")) {
