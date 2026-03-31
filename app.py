@@ -66,7 +66,7 @@ div.stButton > button:hover {
 # =========================
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
-SUPABASE_KEY = "TU_KEY"
+SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
