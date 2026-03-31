@@ -28,7 +28,7 @@ body {
 st.markdown("""
 <style>
 .titulo {
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 700;
     color: #1f4e79;
     text-align: center;
@@ -60,6 +60,24 @@ div.stButton > button {
 div.stButton > button:hover {
     background-color: #f0f4f8;
     transform: scale(1.02);
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+.boton-volver button {
+    background-color: #28a745 !important;
+    color: white !important;
+    font-size: 14px !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    width: auto !important;
+}
+
+.boton-volver button:hover {
+    background-color: #218838 !important;
 }
 </style>
 """, unsafe_allow_html=True)
