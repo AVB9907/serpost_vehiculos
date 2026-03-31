@@ -32,18 +32,6 @@ div.stButton > button:hover {
 </style>
 """, unsafe_allow_html=True)
 
-/* BOTÓN VOLVER */
-button:has(span:contains("Volver")) {
-    background-color: #28a745 !important;
-    color: white !important;
-    font-size: 14px !important;
-    padding: 6px 14px !important;
-    border-radius: 8px !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
@@ -105,24 +93,29 @@ elif st.session_state.pagina == "vehiculos":
             st.session_state.pagina = "incidencia"
             st.rerun()
 
-    if st.button("Volver"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
+    with col1:
+        if st.button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
 
 elif st.session_state.pagina == "apartados":
     st.subheader("Apartados postales")
     st.write("Módulo en construcción")
 
-    if st.button("Volver"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
+    col1, col2 = st.columns([1,6])
+
+    with col1:
+        if st.button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
 
 elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
     st.write("Módulo en construcción")
 
-    if st.button("Volver"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
+      with col1:
+        if st.button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
 
 
