@@ -76,7 +76,9 @@ if st.session_state.pagina == "inicio":
         if st.button("No distribuibles", use_container_width=True):
             st.session_state.pagina = "nodist"
             st.rerun()
-            
+
+# MÓDULO VEHICULOS
+
 elif st.session_state.pagina == "vehiculos":
 
     st.markdown("## Módulo Vehículos")
@@ -98,6 +100,26 @@ elif st.session_state.pagina == "vehiculos":
             st.session_state.pagina = "inicio"
             st.rerun()
 
+# MÓDULO DEMORAS OPERATIVAS
+
+elif st.session_state.pagina == "demoras":
+
+    st.subheader("Demoras operativas")
+
+    st.markdown("Reporta problemas por clima, huaicos u otros eventos")
+
+    st.link_button(
+        "Ir al formulario de demoras",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing&ouid=109605618064294682889"
+    )
+
+    with col1:
+        if st.button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
+
+# MÓDULO APARTADOS
+
 elif st.session_state.pagina == "apartados":
     st.subheader("Apartados postales")
     st.write("Módulo en construcción")
@@ -108,6 +130,8 @@ elif st.session_state.pagina == "apartados":
         if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
+
+# MÓDULO NO DISTRIBUIBLES
 
 elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
