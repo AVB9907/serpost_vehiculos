@@ -4,76 +4,6 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
-# =========================
-# UI
-# =========================
-
-# =========================
-# UI PRO REAL
-# =========================
-
-st.markdown("""
-<style>
-
-/* FONDO REAL DE STREAMLIT */
-.stApp {
-    background-color: #f4f6f9;
-}
-
-/* TÍTULO */
-.titulo {
-    font-size: 56px;
-    font-weight: 800;
-    color: #1f4e79;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-/* SUBTÍTULO */
-.sub {
-    text-align: center;
-    color: #6c757d;
-    font-size: 20px;
-    margin-bottom: 40px;
-}
-
-/* BOTONES GRANDES (MÓDULOS) */
-div.stButton > button {
-    height: 140px;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 16px;
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
-    transition: all 0.2s ease;
-}
-
-/* HOVER */
-div.stButton > button:hover {
-    background-color: #eef3f8;
-    transform: translateY(-3px);
-}
-
-/* BOTÓN VOLVER */
-.boton-volver button {
-    background-color: #28a745 !important;
-    color: white !important;
-    font-size: 14px !important;
-    padding: 6px 14px !important;
-    border-radius: 8px !important;
-    border: none !important;
-    width: auto !important;
-}
-
-/* HOVER VOLVER */
-.boton-volver button:hover {
-    background-color: #218838 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
@@ -154,3 +84,69 @@ elif st.session_state.pagina == "nodist":
     if st.button("Volver"):
         st.session_state.pagina = "inicio"
         st.rerun()
+
+# =========================
+# UI
+# =========================
+
+st.markdown("""
+<style>
+
+/* FONDO REAL DE STREAMLIT */
+.stApp {
+    background-color: #f4f6f9;
+}
+
+/* TÍTULO */
+.titulo {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1f4e79;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* SUBTÍTULO */
+.sub {
+    text-align: center;
+    color: #6c757d;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/* BOTONES GRANDES (MÓDULOS) */
+div.stButton > button {
+    height: 140px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 16px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+}
+
+/* HOVER */
+div.stButton > button:hover {
+    background-color: #eef3f8;
+    transform: translateY(-3px);
+}
+
+/* BOTÓN VOLVER */
+.boton-volver button {
+    background-color: #28a745 !important;
+    color: white !important;
+    font-size: 14px !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    width: auto !important;
+}
+
+/* HOVER VOLVER */
+.boton-volver button:hover {
+    background-color: #218838 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
