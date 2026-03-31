@@ -110,8 +110,10 @@ elif st.session_state.pagina == "demoras":
 
     st.link_button(
         "Ir al formulario de demoras",
-        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing&ouid=109605618064294682889"
+        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
     )
+
+    col1, col2 = st.columns([1,6])
 
     with col1:
         if st.button("← Volver"):
