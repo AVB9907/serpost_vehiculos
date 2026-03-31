@@ -8,59 +8,51 @@ st.set_page_config(layout="wide")
 # UI
 # =========================
 
+# =========================
+# UI PRO REAL
+# =========================
+
 st.markdown("""
 <style>
 
-body {
+/* FONDO REAL DE STREAMLIT */
+.stApp {
     background-color: #f4f6f9;
-}
-
-/* TARJETAS */
-.card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.03);
 }
 
 /* TÍTULO */
 .titulo {
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 56px;
+    font-weight: 800;
     color: #1f4e79;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* SUBTÍTULO */
 .sub {
     text-align: center;
     color: #6c757d;
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: 40px;
 }
 
 /* BOTONES GRANDES (MÓDULOS) */
 div.stButton > button {
-    height: 120px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 12px;
+    height: 140px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 16px;
     background-color: white;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
-    transition: 0.2s;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
 }
 
+/* HOVER */
 div.stButton > button:hover {
-    background-color: #f0f4f8;
-    transform: scale(1.02);
+    background-color: #eef3f8;
+    transform: translateY(-3px);
 }
 
 /* BOTÓN VOLVER */
@@ -68,12 +60,13 @@ div.stButton > button:hover {
     background-color: #28a745 !important;
     color: white !important;
     font-size: 14px !important;
-    padding: 6px 16px !important;
+    padding: 6px 14px !important;
     border-radius: 8px !important;
     border: none !important;
     width: auto !important;
 }
 
+/* HOVER VOLVER */
 .boton-volver button:hover {
     background-color: #218838 !important;
 }
