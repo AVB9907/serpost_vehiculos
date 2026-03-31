@@ -129,10 +129,10 @@ elif st.session_state.pagina == "demoras":
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
     )
 
-    col1, col2 = st.columns([1,6])
-
+    col1, col2 = st.columns([1,10])
+    
     with col1:
-        if st.button("← Volver"):
+        if st.button("←", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
 
@@ -142,24 +142,22 @@ elif st.session_state.pagina == "apartados":
     st.subheader("Apartados postales")
     st.write("Módulo en construcción")
 
-    col1, col2 = st.columns([1,6])
-
+    col1, col2 = st.columns([1,10])
+    
     with col1:
-        if st.button("← Volver"):
+        if st.button("←", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-
 # MÓDULO NO DISTRIBUIBLES
 
 elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
     st.write("Módulo en construcción")
     
-    col1, col2 = st.columns([1,6])
-
+    col1, col2 = st.columns([1,10])
+    
     with col1:
-        if st.button("← Volver"):
+        if st.button("←", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-
 
