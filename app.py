@@ -23,7 +23,7 @@ st.markdown("""
 .sub {
     text-align: center;
     color: #a5b9d2 !important;
-    font-size: 30px !important;
+    font-size: 20px !important;
 }
 
 /* BOTONES GRANDES */
