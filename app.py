@@ -60,9 +60,6 @@ def login(usuario, password):
 # SESSION STATE
 # =========================
 
-if "pagina" not in st.session_state:
-    st.session_state.pagina = "inicio"
-
 if st.session_state.pagina == "inicio":
 
     st.markdown('<p class="titulo">Administración de Canales - Serpost</p>', unsafe_allow_html=True)
@@ -71,29 +68,25 @@ if st.session_state.pagina == "inicio":
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.markdown('<div class="card">Vehículos</div>', unsafe_allow_html=True)
-        if st.button("Ingresar", key="vehiculos"):
+        if st.button("Vehículos", use_container_width=True):
             st.session_state.pagina = "vehiculos"
             st.rerun()
 
     with col2:
-        st.markdown('<div class="card">Demoras operativas</div>', unsafe_allow_html=True)
-        if st.button("Ingresar", key="demoras"):
+        if st.button("Demoras operativas", use_container_width=True):
             st.session_state.pagina = "demoras"
             st.rerun()
 
     with col3:
-        st.markdown('<div class="card">Apartados postales</div>', unsafe_allow_html=True)
-        if st.button("Ingresar", key="apartados"):
+        if st.button("Apartados postales", use_container_width=True):
             st.session_state.pagina = "apartados"
             st.rerun()
 
     with col4:
-        st.markdown('<div class="card">No distribuibles</div>', unsafe_allow_html=True)
-        if st.button("Ingresar", key="nodist"):
+        if st.button("No distribuibles", use_container_width=True):
             st.session_state.pagina = "nodist"
             st.rerun()
-
+            
 elif st.session_state.pagina == "vehiculos":
 
     st.markdown("## Módulo Vehículos")
