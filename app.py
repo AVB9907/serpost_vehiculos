@@ -4,9 +4,7 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
-# =========================
 # UI
-# =========================
 
 st.markdown("""
 <style>
@@ -61,9 +59,7 @@ div.stButton > button:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# =========================
 # SUPABASE
-# =========================
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
 SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
@@ -76,9 +72,10 @@ def login(usuario, password):
     res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
     return len(res.data) > 0
 
-# =========================
 # SESSION STATE
-# =========================
+
+if "pagina" not in st.session_state:
+    st.session_state.pagina = "inicio"
 
 if st.session_state.pagina == "inicio":
 
