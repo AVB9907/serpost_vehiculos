@@ -68,7 +68,7 @@ if "pagina" not in st.session_state:
 
 if st.session_state.pagina == "inicio":
 
-    st.markdown('<p class="titulo">Administración de Canales - Serpost</p>', unsafe_allow_html=True)
+    st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
     st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
     col1, col2, col3, col4 = st.columns(4)
