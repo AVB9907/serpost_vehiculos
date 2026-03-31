@@ -43,6 +43,15 @@ div.stButton > button:hover {
     transform: translateY(-3px);
 }
 
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+[data-testid="stAppViewContainer"] {
+    background-color: #f2f2f2;
+}
+
 /* BOTÓN VOLVER PEQUEÑO */
 div.stButton:nth-child(1) > button {
     height: 40px !important;
