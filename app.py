@@ -22,8 +22,8 @@ st.markdown("""
 
 .sub {
     text-align: center;
-    color: #6c757d;
-    font-size: 20px;
+    color: #a5b9d2 !important;
+    font-size: 15px !important;
 }
 
 /* BOTONES GRANDES */
