@@ -115,10 +115,7 @@ elif st.session_state.pagina == "vehiculos":
         if st.button("←", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-
-with col2:
-    st.markdown("### Demoras operativas")
-        
+            
 # MÓDULO DEMORAS OPERATIVAS
 
 elif st.session_state.pagina == "demoras":
