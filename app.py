@@ -139,7 +139,7 @@ if st.session_state["pagina"] == "inicio":
         if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
                  key="vehiculos_btn", 
                  use_container_width=True):
-        st.session_state["pagina"] = "vehiculos"
+            st.session_state["pagina"] = "vehiculos"
                      
     # ===== DEMORAS =====
     with col2:
