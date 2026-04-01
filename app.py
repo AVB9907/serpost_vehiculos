@@ -69,13 +69,20 @@ div.stButton > button {
     padding: 20px;
 }
 
-/* ===== OVERRIDE ONLY VOLVER BUTTON SIZE ===== */
-button[data-testid="baseButton-secondary"][id*="volver_btn"] {
+/* ===== SMALL VOLVER BUTTON (ONLY THIS ONE) ===== */
+.volver-container div.stButton > button {
     height: 60px !important;
-    width: 200px !important;
-    padding: 10px !important;
+    width: 220px !important;
     font-size: 14px !important;
     border-radius: 12px !important;
+    padding: 10px !important;
+}
+
+/* Center it nicely */
+.volver-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* ===== HOVER EFFECT (FIXED) ===== */
@@ -202,9 +209,14 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Vehículo registrado")
             st.rerun()
 
-        if st.button("← Volver", key="volver_btn"):
-            st.session_state.subvehiculos = "menu"
-            st.rerun()
+        with st.container():
+            st.markdown('<div class="volver-container">', unsafe_allow_html=True)
+
+            if st.button("← Volver al inicio"):
+                st.session_state["pagina"] = "inicio"
+                st.rerun()
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
