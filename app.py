@@ -34,46 +34,42 @@ st.markdown("""
 }
 
 /* BOTONES GRANDES */
+
 div.stButton > button {
-    height: 140px !important;
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    border-radius: 16px !important;
+    width: 100%;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    border: 1px solid #e6e6e6 !important;
     background-color: white !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.08) !important;
-    transition: all 0.2s ease;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
 /*COLORES DE MODULOS*/
 
-div.stButton > button {
-    border: none !important;
-    border-radius: 10px !important;
-    background-color: #ffffff !important;
-    transition: all 0.2s ease-in-out;
-}
-
 div.stButton:nth-of-type(1) > button {
-    box-shadow: 0 0 0 2px rgba(31,119,180,0.15) !important;
+    border-top: 4px solid #1f77b4 !important;
 }
 
 div.stButton:nth-of-type(2) > button {
-    box-shadow: 0 0 0 2px rgba(220,53,69,0.15);
+    border-top: 4px solid #dc3545 !important;
 }
 
 div.stButton:nth-of-type(3) > button {
-    box-shadow: 0 0 0 2px rgba(255,193,7,0.2);
+    border-top: 4px solid #ffc107 !important;
 }
 
 div.stButton:nth-of-type(4) > button {
-    box-shadow: 0 0 0 2px rgba(108,117,125,0.2);
+    border-top: 4px solid #6c757d !important;
 }
 
-/* HOVER */
+/* Hover effect */
 div.stButton > button:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    border-color: #dcdcdc !important;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
