@@ -78,12 +78,12 @@ div.stButton > button {
 }
 
 
-/* ===== HOVER EFFECT ===== */
+/* ===== HOVER EFFECT (FIXED) ===== */
 div.stButton > button:hover {
+    background: rgba(255,255,255,0.95) !important; 
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-}
-
+    }
 
 /* ===== OPTIONAL: CENTER TEXT NICELY ===== */
 div.stButton > button {
