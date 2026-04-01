@@ -46,18 +46,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* ===== BUTTON AS CARD ===== */
 
-.volver-container div.stButton > button {
-    height: 10px !important;
-    width: 20px !important;
-    font-size: 14px !important;
-    border-radius: 12px !important;
-    padding: 10px !important;
-}
-
-div.stButton {
-    margin: 10px 8px;
-}
-
 div.stButton > button {
     height: 200px;
     width: 90%;
