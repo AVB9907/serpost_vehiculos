@@ -44,22 +44,12 @@ div.stButton > button {
 /* CARD DESIGN */
 
 .card {
-    pointer-events: none !important; 
+    cursor: pointer;
 }
 
-.card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.25s ease;
-}
-
-/* HOVER */
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
 }
 
 /* ICONO */
@@ -105,6 +95,11 @@ def login(usuario, password):
 
 # SESSION STATE
 
+query_params = st.query_params
+
+if "pagina" in query_params:
+    st.session_state.pagina = query_params["pagina"]
+
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
 
@@ -117,19 +112,18 @@ if st.session_state.pagina == "inicio":
 
 # VEHICULOS
     with col1:
-        if st.button(" ", key="vehiculos", use_container_width=True):
-            st.session_state.pagina = "vehiculos"
-            st.rerun()
-    
-        st.markdown("""
+    if st.markdown("""
+    <a href="?page=vehiculos" target="_self" style="text-decoration: none;">
         <div class="card">
             <div class="card-icon">1</div>
             <div class="card-title">Gestión de vehículos</div>
             <div class="card-sub">Registro y control de la flota vehicular</div>
         </div>
-        """, unsafe_allow_html=True)
-    
-    # DEMORAS
+    </a>
+    """, unsafe_allow_html=True):
+        pass
+        
+# DEMORAS
     with col2:
         if st.button(" ", key="demoras", use_container_width=True):
             st.session_state.pagina = "demoras"
