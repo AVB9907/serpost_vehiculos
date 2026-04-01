@@ -41,8 +41,8 @@ st.markdown("""
 
 /* ===== SMALL VOLVER BUTTON (ONLY THIS ONE) ===== */
 .volver-container div.stButton > button {
-    height: 60px !important;
-    width: 220px !important;
+    height: 10px !important;
+    width: 20px !important;
     font-size: 14px !important;
     border-radius: 12px !important;
     padding: 10px !important;
