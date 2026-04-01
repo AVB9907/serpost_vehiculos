@@ -122,7 +122,7 @@ if "pagina" in st.query_params:
 
 col1, col2, col3, col4 = st.columns(4)
 
-    # ===== VEHICULOS =====
+# ===== VEHICULOS =====
     with col1:
         if st.button("vehiculos", key="vehiculos_btn", use_container_width=True):
             st.session_state.pagina = "vehiculos"
@@ -136,7 +136,7 @@ col1, col2, col3, col4 = st.columns(4)
         </div>
         """, unsafe_allow_html=True)
     
-    # ===== DEMORAS =====
+# ===== DEMORAS =====
     with col2:
         if st.button("demoras", key="demoras_btn", use_container_width=True):
             st.session_state.pagina = "demoras"
@@ -150,7 +150,7 @@ col1, col2, col3, col4 = st.columns(4)
         </div>
         """, unsafe_allow_html=True)
     
-    # ===== APARTADOS =====
+# ===== APARTADOS =====
     with col3:
         if st.button("apartados", key="apartados_btn", use_container_width=True):
             st.session_state.pagina = "apartados"
@@ -164,7 +164,7 @@ col1, col2, col3, col4 = st.columns(4)
         </div>
         """, unsafe_allow_html=True)
     
-    # ===== NO DISTRIBUIBLES =====
+# ===== NO DISTRIBUIBLES =====
     
     with col4:
         if st.button("nodist", key="nodist_btn", use_container_width=True):
