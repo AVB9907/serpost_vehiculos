@@ -35,10 +35,9 @@ st.markdown("""
 
 /* BOTONES GRANDES */
 
-/* Make buttons look like cards/boxes */
 div.stButton > button {
-    width: 100% !important;
-    height: 140px !important;   /* 🔥 controls box size */
+    width: 80% !important;
+    height: 140px !important; 
     border-radius: 16px !important;
 
     display: flex !important;
