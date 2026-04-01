@@ -9,7 +9,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 [data-testid="stAppViewContainer"] {
-    background-color: #fff0d9 !important;
+    background-color: #f0f0f0 !important;
 }
 
 .titulo {
@@ -124,6 +124,7 @@ if st.session_state.pagina == "inicio":
         if st.button("Gestión de vehículos", use_container_width=True):
             st.session_state.pagina = "vehiculos"
             st.rerun()
+        st.markdown("Registro y control del estado de la flota vehicular")
 
     with col2:
         if st.button("Reportar demoras", use_container_width=True):
