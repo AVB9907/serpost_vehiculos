@@ -24,19 +24,19 @@ st.markdown("""
 
 /* ===== TITULOS ===== */
 .titulo {
-    font-size: 42px;
-    font-weight: 800;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    font-size: 42px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+    letter-spacing: 1px !important;
 }
 
 .sub {
-    text-align: center;
-    color: #dbe6ff;
-    font-size: 18px;
-    margin-bottom: 30px;
+    text-align: center !important;
+    color: #dbe6ff !important;
+    font-size: 18px !important;
+    margin-bottom: 30px !important;
 }
 
 
