@@ -72,23 +72,19 @@ div.stButton > button:hover {
 
 /*MODULOS*/
 div.stButton:nth-of-type(1) > button {
-    border-top: 5px solid #0ea5e9 !important;
-    background-color: rgba(14,165,233,0.08);
+    border: 2px solid #0ea5e9 !important;
 }
 
 div.stButton:nth-of-type(2) > button {
-    border-top: 5px solid #f43f5e !important;
-    background-color: rgba(244,63,94,0.08);
+    border: 2px solid #f43f5e !important;
 }
 
 div.stButton:nth-of-type(3) > button {
-    border-top: 5px solid #facc15 !important;
-    background-color: rgba(250,204,21,0.12);
+    border: 2px solid #facc15 !important;
 }
 
 div.stButton:nth-of-type(4) > button {
-    border-top: 5px solid #334155 !important;
-    background-color: rgba(51,65,85,0.08);
+    border: 2px solid #334155 !important;
 }
 
 </style>
