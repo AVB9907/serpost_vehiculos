@@ -55,7 +55,7 @@ div.stButton > button {
 }
 
 div.stButton:nth-of-type(1) > button {
-    box-shadow: 0 0 0 2px rgba(31,119,180,0.15);
+    box-shadow: 0 0 0 2px rgba(31,119,180,0.15) !important;
 }
 
 div.stButton:nth-of-type(2) > button {
