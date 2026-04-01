@@ -11,7 +11,19 @@ st.markdown("""
 
 /* FONDO */
 [data-testid="stAppViewContainer"] {
-    background-color: #f0f0f0 !important;
+    background: linear-gradient(rgba(5, 15, 35, 0.9), rgba(5, 15, 35, 0.95)),
+                url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.stApp div[data-testid="stVerticalBlock"] > div {
+    background-color: rgba(255, 255, 255, 0.92);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
 /* TÍTULO */
