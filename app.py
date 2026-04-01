@@ -122,62 +122,62 @@ if "pagina" in st.query_params:
 
 col1, col2, col3, col4 = st.columns(4)
 
-# ===== VEHICULOS =====
-with col1:
-    if st.button("vehiculos", key="vehiculos_btn", use_container_width=True):
-        st.session_state.pagina = "vehiculos"
-        st.rerun()
-
-    st.markdown("""
-    <div class="card">
-        <div class="card-icon">🚚</div>
-        <div class="card-title">Gestión de vehículos</div>
-        <div class="card-sub">Registro y control de la flota vehicular</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ===== DEMORAS =====
-with col2:
-    if st.button("demoras", key="demoras_btn", use_container_width=True):
-        st.session_state.pagina = "demoras"
-        st.rerun()
-
-    st.markdown("""
-    <div class="card">
-        <div class="card-icon">⏱️</div>
-        <div class="card-title">Reportar demoras</div>
-        <div class="card-sub">Incidencias operativas</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ===== APARTADOS =====
-with col3:
-    if st.button("apartados", key="apartados_btn", use_container_width=True):
-        st.session_state.pagina = "apartados"
-        st.rerun()
-
-    st.markdown("""
-    <div class="card">
-        <div class="card-icon">📦</div>
-        <div class="card-title">Apartados postales</div>
-        <div class="card-sub">Gestión de apartados</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ===== NO DISTRIBUIBLES =====
-
-with col4:
-    if st.button("nodist", key="nodist_btn", use_container_width=True):
-        st.session_state.pagina = "nodist"
-        st.rerun()
-
-    st.markdown("""
-    <div class="card">
-        <div class="card-icon">⚠️</div>
-        <div class="card-title">No distribuibles</div>
-        <div class="card-sub">Envíos no entregados</div>
-    </div>
-    """, unsafe_allow_html=True)
+    # ===== VEHICULOS =====
+    with col1:
+        if st.button("vehiculos", key="vehiculos_btn", use_container_width=True):
+            st.session_state.pagina = "vehiculos"
+            st.rerun()
+    
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <div class="card-title">Gestión de vehículos</div>
+            <div class="card-sub">Registro y control de la flota vehicular</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # ===== DEMORAS =====
+    with col2:
+        if st.button("demoras", key="demoras_btn", use_container_width=True):
+            st.session_state.pagina = "demoras"
+            st.rerun()
+    
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">⏱️</div>
+            <div class="card-title">Reportar demoras</div>
+            <div class="card-sub">Incidencias operativas</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # ===== APARTADOS =====
+    with col3:
+        if st.button("apartados", key="apartados_btn", use_container_width=True):
+            st.session_state.pagina = "apartados"
+            st.rerun()
+    
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">📦</div>
+            <div class="card-title">Apartados postales</div>
+            <div class="card-sub">Gestión de apartados</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # ===== NO DISTRIBUIBLES =====
+    
+    with col4:
+        if st.button("nodist", key="nodist_btn", use_container_width=True):
+            st.session_state.pagina = "nodist"
+            st.rerun()
+    
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">⚠️</div>
+            <div class="card-title">No distribuibles</div>
+            <div class="card-sub">Envíos no entregados</div>
+        </div>
+        """, unsafe_allow_html=True)
     
 # MÓDULO VEHICULOS
 
