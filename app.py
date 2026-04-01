@@ -216,7 +216,7 @@ elif st.session_state.pagina == "vehiculos":
                 st.session_state["pagina"] = "inicio"
                 st.rerun()
 
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
