@@ -47,6 +47,28 @@ div.stButton > button:hover {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div style="
+background-color:#1f4e79;
+padding:15px 30px;
+border-radius:10px;
+margin-bottom:30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<div style="color:white; font-size:20px; font-weight:600;">
+Sistema Logístico - SERPOST
+</div>
+
+<div style="color:white; font-size:14px;">
+Operaciones
+</div>
+
+</div>
+""", unsafe_allow_html=True)
+
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
