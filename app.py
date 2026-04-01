@@ -19,13 +19,6 @@ st.markdown("""
     background-attachment: fixed;
 }
 
-.stApp div[data-testid="stVerticalBlock"] > div {
-    background-color: rgba(255, 255, 255, 0.92);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-}
-
 /* TÍTULO */
 .titulo {
     font-size: 40px !important;
