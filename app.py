@@ -39,7 +39,13 @@ st.markdown("""
     margin-bottom: 30px !important;
 }
 
-/* ===== SMALL VOLVER BUTTON (ONLY THIS ONE) ===== */
+/* ===== MARKDOWN ===== */
+h1, h2, h3, h4, h5, h6, p {
+    color: #ffffff !important;
+}
+
+/* ===== BUTTON AS CARD ===== */
+
 .volver-container div.stButton > button {
     height: 10px !important;
     width: 20px !important;
@@ -48,26 +54,13 @@ st.markdown("""
     padding: 10px !important;
 }
 
-/* Center it nicely */
-.volver-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* ===== MARKDOWN ===== */
-h1, h2, h3, h4, h5, h6, p {
-    color: #ffffff !important;
-}
-
-/* ===== BUTTON AS CARD ===== */
 div.stButton {
     margin: 10px 8px;
 }
 
 div.stButton > button {
-    height: 80px;
-    width: 100%;
+    height: 200px;
+    width: 90%;
 
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
