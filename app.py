@@ -52,7 +52,7 @@ st.markdown("""
 background-color:#1f4e79;
 padding:12px 25px;
 border-radius:8px;
-margin-bottom:20px;
+margin-bottom:10px;
 display:flex;
 align-items:center;
 ">
