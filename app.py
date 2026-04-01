@@ -58,8 +58,8 @@ div.stButton > button {
     font-size: 18px !important;
     font-weight: 600;
 
-    border: 1px solid #f2f2f2;
-    background-color: white;
+    border: 1px solid #e5e7eb; 
+    background-color: white;   
 
     transition: all 0.25s ease;
 }
@@ -72,19 +72,23 @@ div.stButton > button:hover {
 
 /*MODULOS*/
 div.stButton:nth-of-type(1) > button {
-    box-shadow: 0 4px 14px rgba(31,119,180,0.15);
+    border-top: 5px solid #1f77b4 !important;
+    background: linear-gradient(to bottom, rgba(31,119,180,0.08), white);
 }
 
 div.stButton:nth-of-type(2) > button {
-    box-shadow: 0 0 0 2px rgba(220,53,69,0.15);
+    border-top: 5px solid #dc3545 !important;
+    background: linear-gradient(to bottom, rgba(220,53,69,0.08), white);
 }
 
 div.stButton:nth-of-type(3) > button {
-    box-shadow: 0 0 0 2px rgba(255,193,7,0.2);
+    border-top: 5px solid #ffc107 !important;
+    background: linear-gradient(to bottom, rgba(255,193,7,0.12), white);
 }
 
 div.stButton:nth-of-type(4) > button {
-    box-shadow: 0 0 0 2px rgba(108,117,125,0.2);
+    border-top: 5px solid #6c757d !important;
+    background: linear-gradient(to bottom, rgba(108,117,125,0.08), white);
 }
 
 </style>
