@@ -72,7 +72,7 @@ div.stButton > button:hover {
 
 /*MODULOS*/
 div.stButton:nth-of-type(1) > button {
-    border-top: 5px solid #1f77b4 !important;
+    border-top: 5px solid #0ea5e9 !important;
     background: linear-gradient(to bottom, rgba(31,119,180,0.08), white);
 }
 
