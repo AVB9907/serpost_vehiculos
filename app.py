@@ -72,23 +72,23 @@ div.stButton > button:hover {
 
 /*MODULOS*/
 div.stButton:nth-of-type(1) > button {
-    border-top: 5px solid #14b8a6 !important;
-    background: linear-gradient(to bottom, rgba(20,184,166,0.12), white);
+    border-top: 5px solid #0284c7 !important;
+    background: linear-gradient(to bottom, rgba(2,132,199,0.12), white);
 }
 
 div.stButton:nth-of-type(2) > button {
-    border-top: 5px solid #6366f1 !important;
-    background: linear-gradient(to bottom, rgba(99,102,241,0.12), white);
+    border-top: 5px solid #0ea5e9 !important;
+    background: linear-gradient(to bottom, rgba(14,165,233,0.12), white);
 }
 
 div.stButton:nth-of-type(3) > button {
-    border-top: 5px solid #f59e0b !important;
-    background: linear-gradient(to bottom, rgba(245,158,11,0.16), white);
+    border-top: 5px solid #22c55e !important;
+    background: linear-gradient(to bottom, rgba(34,197,94,0.12), white);
 }
 
 div.stButton:nth-of-type(4) > button {
-    border-top: 5px solid #64748b !important;
-    background: linear-gradient(to bottom, rgba(100,116,139,0.12), white);
+    border-top: 5px solid #1e293b !important;
+    background: linear-gradient(to bottom, rgba(30,41,59,0.12), white);
 }
 
 </style>
