@@ -4,14 +4,17 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
-# UI
+# CSS
 
 st.markdown("""
 <style>
+
+/* FONDO */
 [data-testid="stAppViewContainer"] {
     background-color: #f0f0f0 !important;
 }
 
+/* TÍTULO */
 .titulo {
     font-size: 40px !important;
     font-weight: 800 !important;
@@ -20,6 +23,7 @@ st.markdown("""
     margin-bottom: 30px !important;
 }
 
+/* SUBTÍTULO */
 .sub {
     text-align: center;
     color: #496991 !important;
@@ -44,6 +48,29 @@ div.stButton > button:hover {
     transform: translateY(-3px);
 }
 
+/* COLORES POR MÓDULO */
+div.stButton:nth-of-type(1) > button {
+    border-left: 6px solid #1f77b4 !important;
+}
+
+div.stButton:nth-of-type(2) > button {
+    border-left: 6px solid #dc3545 !important;
+}
+
+div.stButton:nth-of-type(3) > button {
+    border-left: 6px solid #ffc107 !important;
+}
+
+div.stButton:nth-of-type(4) > button {
+    border-left: 6px solid #6c757d !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# LOGO
+
+st.markdown("""
 <div style="
 display:flex;
 align-items:center;
@@ -54,29 +81,6 @@ margin-bottom:20px;
 style="height:50px;">
 
 </div>
-""", unsafe_allow_html=True)
-
-/* VEHÍCULOS */
-div.stButton:nth-of-type(1) > button {
-    border-left: 6px solid #1f77b4 !important;
-}
-
-/* DEMORAS */
-div.stButton:nth-of-type(2) > button {
-    border-left: 6px solid #dc3545 !important;
-}
-
-/* APARTADOS */
-div.stButton:nth-of-type(3) > button {
-    border-left: 6px solid #ffc107 !important;
-}
-
-/* NO DISTRIBUIBLES */
-div.stButton:nth-of-type(4) > button {
-    border-left: 6px solid #6c757d !important;
-}
-
-</style>
 """, unsafe_allow_html=True)
 
 # SUPABASE
@@ -197,4 +201,3 @@ elif st.session_state.pagina == "nodist":
         if st.button("← Volver", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-
