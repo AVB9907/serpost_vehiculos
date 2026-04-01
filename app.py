@@ -100,25 +100,21 @@ if st.session_state.pagina == "inicio":
         if st.button("Gestión de vehículos", use_container_width=True):
             st.session_state.pagina = "vehiculos"
             st.rerun()
-        st.markdown("Registro y control del estado de la flota vehicular")
 
     with col2:
         if st.button("Reportar demoras", use_container_width=True):
             st.session_state.pagina = "demoras"
             st.rerun()
-        st.markdown("Reporte de incidencias operativas por factores externos")
 
     with col3:
         if st.button("Apartados postales", use_container_width=True):
             st.session_state.pagina = "apartados"
             st.rerun()
-        st.markdown("Gestión de apartados postales por administración")
 
     with col4:
         if st.button("No distribuibles", use_container_width=True):
             st.session_state.pagina = "nodist"
             st.rerun()
-        st.markdown("Reportar envíos no distribuibles")
 
 # MÓDULO VEHICULOS
 
