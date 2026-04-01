@@ -23,7 +23,7 @@ st.markdown("""
 .titulo {
     font-size: 40px !important;
     font-weight: 800 !important;
-    color: #496991 !important;
+    color: #f0f0f0 !important;
     text-align: center !important;
     margin-bottom: 30px !important;
 }
@@ -31,7 +31,7 @@ st.markdown("""
 /* SUBTÍTULO */
 .sub {
     text-align: center;
-    color: #496991 !important;
+    color: #f0f0f0 !important;
     font-size: 20px !important;
 }
 
