@@ -9,7 +9,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 div.volver-btn button {
-    background-color: transparent !important;
+    background-color: black !important;
     color: #94a3b8 !important;
     border: none !important;
     font-size: 14px !important;
