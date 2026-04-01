@@ -136,7 +136,7 @@ if st.session_state["pagina"] == "inicio":
 
     # ===== VEHICULOS =====
     with col1:
-    if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
+        if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
                  key="vehiculos_btn", 
                  use_container_width=True):
         st.session_state["pagina"] = "vehiculos"
