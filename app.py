@@ -45,29 +45,35 @@ div.stButton > button {
     transition: all 0.2s ease;
 }
 
-/* HOVER */
-div.stButton > button:hover {
-    background-color: #eef3f8 !important;
-    transform: translateY(-3px);
+/*COLORES DE MODULOS*/
+
+div.stButton > button {
+    border: none !important;
+    border-radius: 10px !important;
+    background-color: #ffffff !important;
+    transition: all 0.2s ease-in-out;
 }
 
-/* COLORES POR MÓDULO */
 div.stButton:nth-of-type(1) > button {
-    border-left: 6px solid #1f77b4 !important;
+    box-shadow: 0 0 0 2px rgba(31,119,180,0.15);
 }
 
 div.stButton:nth-of-type(2) > button {
-    border-left: 6px solid #dc3545 !important;
+    box-shadow: 0 0 0 2px rgba(220,53,69,0.15);
 }
 
 div.stButton:nth-of-type(3) > button {
-    border-left: 6px solid #ffc107 !important;
+    box-shadow: 0 0 0 2px rgba(255,193,7,0.2);
 }
 
 div.stButton:nth-of-type(4) > button {
-    border-left: 6px solid #6c757d !important;
+    box-shadow: 0 0 0 2px rgba(108,117,125,0.2);
 }
 
+/* HOVER */
+div.stButton > button:hover {
+    transform: scale(1.02);
+}
 </style>
 """, unsafe_allow_html=True)
 
