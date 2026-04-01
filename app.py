@@ -57,7 +57,7 @@ display:flex;
 align-items:center;
 ">
 
-<"https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
+<img src="https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
 style="height:40px;">
 
 </div>
