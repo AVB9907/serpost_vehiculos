@@ -110,17 +110,44 @@ def login(usuario, password):
     res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
     return len(res.data) > 0
 
-# SESSION STATE
+# ===== SESSION STATE ===== #
 
-    # Default page
-    if "pagina" not in st.session_state:
-        st.session_state.pagina = "inicio"
-    
-    # Sync with URL (only if exists)
-    if "pagina" in st.query_params:
-        st.session_state.pagina = st.query_params["pagina"]
+if "pagina" not in st.session_state:
+    st.session_state.pagina = "inicio"
 
-col1, col2, col3, col4 = st.columns(4)
+if "pagina" in st.query_params:
+    st.session_state.pagina = st.query_params["pagina"]
+
+
+# ===== MAIN NAVIGATION ===== #
+
+# ===== HOME =====
+if st.session_state.pagina == "inicio":
+
+    st.markdown("## Inicio")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        if st.button("Vehículos"):
+            st.session_state.pagina = "vehiculos"
+            st.rerun()
+
+    with col2:
+        if st.button("Demoras"):
+            st.session_state.pagina = "demoras"
+            st.rerun()
+
+    with col3:
+        if st.button("Apartados"):
+            st.session_state.pagina = "apartados"
+            st.rerun()
+
+    with col4:
+        if st.button("No distribuibles"):
+            st.session_state.pagina = "nodist"
+            st.rerun()
+
 
 # ===== VEHICULOS =====
 elif st.session_state.pagina == "vehiculos":
