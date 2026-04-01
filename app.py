@@ -129,7 +129,7 @@ if st.session_state["pagina"] == "inicio":
 
     col1, col2, col3, col4 = st.columns(4)
 
-    # ===== VEHICULOS =====
+    # VEHICULOS
     with col1:
         if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
                  key="vehiculos_btn", 
@@ -137,7 +137,7 @@ if st.session_state["pagina"] == "inicio":
             st.session_state["pagina"] = "vehiculos"
             st.rerun()
                      
-    # ===== DEMORAS =====
+    # DEMORAS
     with col2:
         if st.button("⏱️\n\nDemoras operativas\nIncidencias externas",
                 key="demoras_btn",
@@ -145,7 +145,7 @@ if st.session_state["pagina"] == "inicio":
             st.session_state["pagina"] = "demoras"
             st.rerun()
 
-    # ===== APARTADOS =====
+    # APARTADOS
     with col3:
         if st.button("📦\n\nApartados\nGestión de apartados",
                 key="apartados_btn",
@@ -153,7 +153,7 @@ if st.session_state["pagina"] == "inicio":
             st.session_state["pagina"] = "apartados"
             st.rerun()
         
-    # ===== NO DISTRIBUIBLES =====
+    # NO DISTRIBUIBLES
     with col4:
         if st.button("⚠️\n\nNo distribuibles\nEnvíos no entregados",
                 key="nodist_btn",
@@ -171,7 +171,7 @@ elif st.session_state.pagina == "vehiculos":
 
     st.markdown("## 🚚 Módulo Vehículos")
 
-    # ===== MENU =====
+    # MENU
     if st.session_state.subvehiculos == "menu":
 
         st.markdown("Seleccione una opción:")
@@ -188,7 +188,7 @@ elif st.session_state.pagina == "vehiculos":
                 st.session_state.subvehiculos = "incidencia"
                 st.rerun()
 
-    # ===== REGISTRO =====
+    # REGISTRO
     elif st.session_state.subvehiculos == "registro":
 
         st.markdown("### 📝 Registro de vehículo")
@@ -201,11 +201,11 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Vehículo registrado")
             st.rerun()
 
-        if st.button("← Volver", key="volver_btn")
+        if st.button("← Volver", key="volver_btn"):
             st.session_state.subvehiculos = "menu"
             st.rerun()
 
-    # ===== INCIDENCIA =====
+    # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
 
         st.markdown("### ⚠️ Reporte de incidencia")
@@ -224,13 +224,13 @@ elif st.session_state.pagina == "vehiculos":
 
     st.divider()
 
-    if st.button("← Volver", key="volver_btn")
+    if st.button("← Volver", key="volver_btn"):
         st.session_state.pagina = "inicio"
         st.session_state.subvehiculos = "menu"
         st.rerun()
 
 
-# ===== DEMORAS =====
+# ===== MODULO DEMORAS =====
 elif st.session_state.pagina == "demoras":
 
     st.markdown("## ⏱️ Demoras operativas")
@@ -245,12 +245,12 @@ elif st.session_state.pagina == "demoras":
 
     st.divider()
 
-    if st.button("← Volver", key="volver_btn")
+    if st.button("← Volver", key="volver_btn"):
         st.session_state.pagina = "inicio"
         st.rerun()
 
 
-# ===== APARTADOS =====
+# ===== MODULO APARTADOS =====
 elif st.session_state.pagina == "apartados":
 
     st.markdown("## 📦 Apartados postales")
@@ -258,12 +258,12 @@ elif st.session_state.pagina == "apartados":
 
     st.divider()
 
-    if st.button("← Volver", key="volver_btn")
+    if st.button("← Volver", key="volver_btn"):
         st.session_state.pagina = "inicio"
         st.rerun()
 
 
-# ===== NO DISTRIBUIBLES =====
+# ===== MODULO NO DISTRIBUIBLES =====
 elif st.session_state.pagina == "nodist":
 
     st.markdown("## ⚠️ No distribuibles")
@@ -271,6 +271,6 @@ elif st.session_state.pagina == "nodist":
 
     st.divider()
 
-    if st.button("← Volver al inicio"):
+    if st.button("← Volver", key="volver_btn"):
         st.session_state.pagina = "inicio"
         st.rerun()
