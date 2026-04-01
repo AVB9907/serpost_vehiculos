@@ -4,8 +4,6 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
-# CSS
-
 st.markdown("""
 <style>
 
@@ -17,91 +15,89 @@ st.markdown("""
     background-repeat: no-repeat;
 }
 
+/* Optional dark overlay for better contrast */
+[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 40, 100, 0.55);
+    z-index: 0;
+}
+
+/* Make content appear above overlay */
+[data-testid="stAppViewContainer"] > div {
+    position: relative;
+    z-index: 1;
+}
+
+
 /* ===== TITULOS ===== */
 .titulo {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 800;
-    color: #f0f0f0;
+    color: #ffffff;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .sub {
     text-align: center;
-    color: #f0f0f0;
-    font-size: 20px;
-}
-
-/* ===== CARD BASE ===== */
-.card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-
-/* ===== HOVER ===== */
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-}
-
-/* ===== ICON ===== */
-.card-icon {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-/* ===== TEXT ===== */
-.card-title {
-    font-weight: 700;
+    color: #dbe6ff;
     font-size: 18px;
-    color: #2c3e50;
+    margin-bottom: 30px;
 }
 
-.card-sub {
-    font-size: 14px;
-    color: #666;
+
+/* ===== BUTTON AS CARD ===== */
+div.stButton {
+    margin: 10px 8px;
 }
 
-/* ===== LINK FIX ===== */
-a {
-    text-decoration: none !important;
-    color: inherit !important;
-}
-
-/* ===== REMOVE STREAMLIT BUTTON STYLE ===== */
-div.stButton > button {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* BUTTON LAYER (CLICKABLE) */
 div.stButton > button {
     height: 180px;
+    width: 100%;
+
     background: rgba(255,255,255,0.95);
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: none;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
     font-weight: 600;
     font-size: 16px;
     color: #2c3e50;
+
     transition: all 0.25s ease;
-    white-space: pre-line; /* IMPORTANT for line breaks */
+    white-space: pre-line;
+
+    padding: 20px;
 }
 
+
+/* ===== HOVER EFFECT ===== */
 div.stButton > button:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
     box-shadow: 0 20px 50px rgba(0,0,0,0.35);
 }
 
-/* CARD */
-.card {
-    position: relative;
-    z-index: 1;
+
+/* ===== OPTIONAL: CENTER TEXT NICELY ===== */
+div.stButton > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* ===== REMOVE STREAMLIT DEFAULT FOCUS BORDER ===== */
+div.stButton > button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.3);
 }
 
 </style>
