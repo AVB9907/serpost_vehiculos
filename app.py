@@ -173,12 +173,14 @@ elif st.session_state.pagina == "vehiculos":
     col1, col2 = st.columns([1,10])
     
     with col1:
+        st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+
         if st.button("← Volver", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-            
-    st.markdown('</div>', unsafe_allow_html=True)
-            
+
+        st.markdown('</div>', unsafe_allow_html=True)
+    
 # MÓDULO DEMORAS OPERATIVAS
 
 elif st.session_state.pagina == "demoras":
