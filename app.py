@@ -80,14 +80,6 @@ div.stButton > button {
     box-shadow: none !important;
 }
 
-/* MAKE BUTTON INVISIBLE BUT CLICKABLE */
-div.stButton > button {
-    height: 160px;
-    opacity: 0;
-    position: absolute;
-    z-index: 2;
-}
-
 /* CARD */
 .card {
     position: relative;
