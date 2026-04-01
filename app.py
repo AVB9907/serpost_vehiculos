@@ -44,16 +44,18 @@ div.stButton > button:hover {
     transform: translateY(-3px);
 }
 
-</style>
-""", unsafe_allow_html=True)
+st.markdown("""
+<div style="
+display:flex;
+align-items:center;
+margin-bottom:20px;
+">
 
 <img src="https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
-style="height:40px;">
+style="height:50px;">
 
 </div>
 """, unsafe_allow_html=True)
-st.markdown("""
-<style>
 
 /* VEHÍCULOS */
 div.stButton:nth-of-type(1) > button {
