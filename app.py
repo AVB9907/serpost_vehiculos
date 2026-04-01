@@ -98,7 +98,7 @@ if st.session_state.pagina == "inicio":
 
     with col1:
         if st.button("Gestión de vehículos", use_container_width=True):
-            st.markdown("Registro y control del estado de la flota vehicular")
+        st.markdown("Registro y control del estado de la flota vehicular")
             st.session_state.pagina = "vehiculos"
             st.rerun()
         
