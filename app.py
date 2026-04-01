@@ -58,19 +58,19 @@ div.stButton > button {
     font-size: 18px !important;
     font-weight: 600;
 
-    border: 1px solid #e6e6e6 !important;
-    background-color: white !important;
+    border: 1px solid #f2f2f2 !important;
+    background-color: black !important;
 
     transition: all 0.25s ease;
 }
 
-/* Hover = lift effect */
+/*HOVER*/
 div.stButton > button:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
-/* Optional: subtle color accents */
+/*MODULOS*/
 div.stButton:nth-of-type(1) > button {
     box-shadow: 0 0 0 2px rgba(31,119,180,0.15);
 }
