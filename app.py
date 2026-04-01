@@ -206,9 +206,12 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Vehículo registrado")
             st.rerun()
             
-        if st.button("← Volver", key="volver-btn"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
+        col1, col2 = st.columns([1,10])
+
+        with col1:
+            if st.button("← Volver al inicio"):
+                st.session_state["pagina"] = "inicio"
+                st.rerun()
     
     # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
@@ -223,18 +226,12 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Incidencia registrada")
             st.rerun()
 
-        if st.button("← Volver", key="volver_btn"):
-            st.session_state.subvehiculos = "menu"
-            st.rerun()
+        col1, col2 = st.columns([1,10])
 
-        st.divider()
-    
-        col1, col2, col3 = st.columns([1, 2, 1])  # center it
-    
-        with col2:
+        with col1:
             if st.button("← Volver al inicio"):
                 st.session_state["pagina"] = "inicio"
-                st.rerun()
+                st.reru
 
 # ===== MODULO DEMORAS =====
 elif st.session_state.pagina == "demoras":
@@ -248,14 +245,12 @@ elif st.session_state.pagina == "demoras":
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
     )
 
-    st.divider()
-    
-    col1, col2, col3 = st.columns([1, 2, 1])  # center it
-    
-    with col2:
+    col1, col2 = st.columns([1,10])
+
+    with col1:
         if st.button("← Volver al inicio"):
             st.session_state["pagina"] = "inicio"
-            st.rerun()
+            st.reru
 
 # ===== MODULO APARTADOS =====
 elif st.session_state.pagina == "apartados":
@@ -263,14 +258,12 @@ elif st.session_state.pagina == "apartados":
     st.markdown("## 📦 Apartados postales")
     st.write("Módulo en construcción")
 
-    st.divider()
-    
-    col1, col2, col3 = st.columns([1, 2, 1])  # center it
-    
-    with col2:
+    col1, col2 = st.columns([1,10])
+
+    with col1:
         if st.button("← Volver al inicio"):
             st.session_state["pagina"] = "inicio"
-            st.rerun()
+            st.reru
 
 # ===== MODULO NO DISTRIBUIBLES =====
 elif st.session_state.pagina == "nodist":
@@ -278,11 +271,9 @@ elif st.session_state.pagina == "nodist":
     st.markdown("## ⚠️ No distribuibles")
     st.write("Módulo en construcción")
 
-    st.divider()
-    
-    col1, col2, col3 = st.columns([1, 2, 1])  # center it
-    
-    with col2:
+    col1, col2 = st.columns([1,10])
+
+    with col1:
         if st.button("← Volver al inicio"):
             st.session_state["pagina"] = "inicio"
-            st.rerun()
+            st.reru
