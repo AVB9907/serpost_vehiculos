@@ -54,7 +54,7 @@ h2 {
 /* TEXTOS EN GENERAL */
 p {
     color: #3F4D6E !important;
-    font-size: 14px;
+    font-size: 25px;
 }
 
 /* BOTONES GRANDES */
