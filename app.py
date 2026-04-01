@@ -59,7 +59,7 @@ div.stButton > button {
     font-weight: 600;
 
     border: 1px solid #f2f2f2 !important;
-    background-color: black !important;
+    background-color: dark glass !important;
 
     transition: all 0.25s ease;
 }
