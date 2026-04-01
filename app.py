@@ -71,21 +71,6 @@ div.stButton:nth-of-type(4) > button {
 </style>
 """, unsafe_allow_html=True)
 
-# LOGO
-
-st.markdown("""
-<div style="
-display:flex;
-align-items:center;
-margin-bottom:20px;
-">
-
-<img src="https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
-style="height:50px;">
-
-</div>
-""", unsafe_allow_html=True)
-
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
