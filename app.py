@@ -53,7 +53,7 @@ h2 {
 
 /* TEXTOS EN GENERAL */
 p {
-    color: #000000 !important;
+    color: #3F4D6E !important;
     font-size: 14px;
 }
 
