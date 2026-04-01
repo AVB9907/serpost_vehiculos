@@ -9,6 +9,11 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
+
+h2 {
+    color: #f0f0f0 !important;
+}
+
 /* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
@@ -36,7 +41,7 @@ st.markdown("""
 /* BOTONES GRANDES */
 
 div.stButton > button {
-    width: 80% !important;
+    width: 90% !important;
     height: 140px !important; 
     border-radius: 16px !important;
 
