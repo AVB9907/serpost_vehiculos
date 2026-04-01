@@ -69,6 +69,32 @@ Operaciones
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+
+/* VEHÍCULOS */
+div.stButton:nth-of-type(1) > button {
+    border-left: 6px solid #1f77b4 !important;
+}
+
+/* DEMORAS */
+div.stButton:nth-of-type(2) > button {
+    border-left: 6px solid #dc3545 !important;
+}
+
+/* APARTADOS */
+div.stButton:nth-of-type(3) > button {
+    border-left: 6px solid #ffc107 !important;
+}
+
+/* NO DISTRIBUIBLES */
+div.stButton:nth-of-type(4) > button {
+    border-left: 6px solid #6c757d !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
@@ -94,25 +120,25 @@ if st.session_state.pagina == "inicio":
 
     col1, col2, col3, col4 = st.columns(4)
 
-    with col1:
-        if st.button("Vehículos", use_container_width=True):
-            st.session_state.pagina = "vehiculos"
-            st.rerun()
+with col1:
+    if st.button("Gestión de vehículos", use_container_width=True):
+        st.session_state.pagina = "vehiculos"
+        st.rerun()
 
-    with col2:
-        if st.button("Demoras operativas", use_container_width=True):
-            st.session_state.pagina = "demoras"
-            st.rerun()
+with col2:
+    if st.button("Reportar demoras", use_container_width=True):
+        st.session_state.pagina = "demoras"
+        st.rerun()
 
-    with col3:
-        if st.button("Apartados postales", use_container_width=True):
-            st.session_state.pagina = "apartados"
-            st.rerun()
+with col3:
+    if st.button("Apartados postales", use_container_width=True):
+        st.session_state.pagina = "apartados"
+        st.rerun()
 
-    with col4:
-        if st.button("No distribuibles", use_container_width=True):
-            st.session_state.pagina = "nodist"
-            st.rerun()
+with col4:
+    if st.button("No distribuibles", use_container_width=True):
+        st.session_state.pagina = "nodist"
+        st.rerun()
 
 # MÓDULO VEHICULOS
 
