@@ -51,14 +51,14 @@ st.markdown("""
 <div style="
 background-color:#1f4e79;
 padding:12px 25px;
-border-radius:10px;
-margin-bottom:30px;
+border-radius:8px;
+margin-bottom:20px;
 display:flex;
 align-items:center;
 ">
 
 <img src="https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
-style="height:40px;">
+style="height:35px;">
 
 </div>
 """, unsafe_allow_html=True)
