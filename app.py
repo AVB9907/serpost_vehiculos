@@ -64,8 +64,10 @@ p {
 }
 
 /* BOTONES GRANDES */
-
-div[data-testid="stHorizontalBlock"] div.stButton > button {
+div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     width: 100% !important;
     height: 140px !important;
 
