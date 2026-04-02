@@ -105,7 +105,6 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 if st.session_state.user is None:
 
-    ```
     st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1,2,1])
@@ -133,7 +132,6 @@ if st.session_state.user is None:
 
 else:
 
-```
 st.sidebar.write(f"👤 {st.session_state.user['usuario']}")
 
 if st.sidebar.button("Cerrar sesión"):
@@ -237,4 +235,3 @@ elif st.session_state.pagina == "nodist":
         if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-```
