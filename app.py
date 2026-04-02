@@ -200,16 +200,14 @@ else:
                 st.rerun()
         
         col_volver, _ = st.columns([1,10])
-        
+
         with col_volver:
-            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+            with st.form("volver_form", clear_on_submit=False):
+                volver = st.form_submit_button("← Volver")
         
-            if st.form_submit_button("← Volver"):
-                st.session_state.pagina = "inicio"
-                st.rerun()
-        
-            st.markdown('</div>', unsafe_allow_html=True)
-    
+                if volver:
+                    st.session_state.pagina = "inicio"
+                    st.rerun()
     
     elif st.session_state.pagina == "demoras":
         
