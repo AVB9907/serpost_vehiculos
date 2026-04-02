@@ -12,15 +12,7 @@ if "user" not in st.session_state:
 # CSS
 
 st.markdown("""
-
 <style>
-div.volver-btn button {
-    background-color: black !important;
-    color: #94a3b8 !important;
-    border: none !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
 
 /* Hover */
 .volver-btn button:hover {
