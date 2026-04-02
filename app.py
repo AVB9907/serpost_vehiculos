@@ -136,7 +136,7 @@ if st.session_state.user is None:
     col1, col2, col3 = st.columns([2,1,2])
 
     with col2:
-        if st.button("Ingresar"):
+        if st.button("Ingresar", type="secondary", use_container_width=False):
             
             res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
 
