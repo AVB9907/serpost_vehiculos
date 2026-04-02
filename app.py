@@ -14,6 +14,19 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
+/* quitar borde del form */
+div[data-testid="stForm"] {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* opcional: quitar sombra si aparece */
+div[data-testid="stForm"] > div {
+    border: none !important;
+    box-shadow: none !important;
+}
+
 /* Contenedor fijo */
 .volver-fixed {
     position: fixed;
