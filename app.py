@@ -1,12 +1,12 @@
-import streamlit as st
+mport streamlit as st
 from datetime import datetime
 from supabase import create_client
 
-# SESSION USER
+SESSION USER
 
 if "user" not in st.session_state:
     st.session_state.user = None
-    
+
     st.set_page_config(layout="wide")
 
 # CSS
