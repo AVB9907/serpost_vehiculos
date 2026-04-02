@@ -141,9 +141,7 @@ if st.session_state.user is None:
     col1, col2, col3 = st.columns([2,1,2])
 
     with col2:
-        st.markdown('<div class="login-btn">', unsafe_allow_html=True)
-
-        if st.button("Ingresar"):
+        if st.button("Ingresar", key="login_btn"):
             
             res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
 
@@ -157,8 +155,6 @@ if st.session_state.user is None:
                     st.error("Contraseña incorrecta")
             else:
                 st.error("Usuario no existe")
-
-        st.markdown('</div>', unsafe_allow_html=True)
 # APP
 
 else:
