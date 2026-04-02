@@ -14,10 +14,28 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
+/* Contenedor fijo */
+.volver-fixed {
+    position: fixed;
+    top: 80px;        /* ajusta altura */
+    left: 20px;       /* distancia izquierda */
+    z-index: 9999;
+}
+
+/* Botón estilo personalizado */
+.volver-fixed button {
+    background-color: #0ea5e9 !important;  /* 🔵 color */
+    color: white !important;
+    border: none !important;
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+    cursor: pointer;
+}
+
 /* Hover */
-.volver-btn button:hover {
-    color: #0ea5e9 !important;
-    background-color: rgba(14,165,233,0.1) !important;
+.volver-fixed button:hover {
+    background-color: #0284c7 !important;
 }
 
 /* FONDO */
@@ -199,15 +217,16 @@ else:
                 st.session_state.pagina = "incidencia"
                 st.rerun()
         
-        col_volver, _ = st.columns([1,10])
+        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
 
-        with col_volver:
-            with st.form("volver_form", clear_on_submit=False):
-                volver = st.form_submit_button("← Volver")
+        with st.form("volver_form", clear_on_submit=False):
+            volver = st.form_submit_button("← Volver")
         
-                if volver:
-                    st.session_state.pagina = "inicio"
-                    st.rerun()
+            if volver:
+                st.session_state.pagina = "inicio"
+                st.rerun()
+        
+        st.markdown('</div>', unsafe_allow_html=True)
     
     elif st.session_state.pagina == "demoras":
         
