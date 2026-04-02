@@ -14,14 +14,6 @@ if "user" not in st.session_state:
 st.markdown("""
 
 <style>
-.login-btn div.stButton > button {
-    width: auto !important;
-    height: auto !important;
-    padding: 10px 25px !important;
-    font-size: 16px !important;
-    border-radius: 12px !important;
-}
-
 div.volver-btn button {
     background-color: black !important;
     color: #94a3b8 !important;
@@ -73,10 +65,9 @@ p {
 
 /* BOTONES GRANDES */
 
-div.stButton > button {
+div.stButton > button:not([data-testid="baseButton-secondary"]) {
     width: 100% !important;
-    height: 140px !important; 
-    border-radius: 16px !important;
+    height: 140px !important;
 
     display: flex !important;
     align-items: center;
