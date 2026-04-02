@@ -65,7 +65,7 @@ p {
 
 /* BOTONES GRANDES */
 
-div.stButton > button:not([data-testid="baseButton-secondary"]) {
+div[data-testid="stHorizontalBlock"] div.stButton > button {
     width: 100% !important;
     height: 140px !important;
 
