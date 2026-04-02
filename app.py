@@ -2,6 +2,9 @@ import streamlit as st
 from datetime import datetime
 from supabase import create_client
 
+if "user" not in st.session_state:
+    st.session_state.user = None
+
 st.set_page_config(layout="wide")
 
 # CSS
@@ -109,48 +112,74 @@ div.stButton:nth-of-type(4) > button {
 
 # SUPABASE
 
-SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
-SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
+SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co" 
+SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB" 
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# USUARIOS
+# LOGIN
 
-def login(usuario, password):
-    res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
-    return len(res.data) > 0
+if st.session_state.user is None:
 
-# SESSION STATE
+    st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
 
-if "pagina" not in st.session_state:
-    st.session_state.pagina = "inicio"
-
-if st.session_state.pagina == "inicio":
-
-    st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        if st.button("Gestión de vehículos", use_container_width=True):
-            st.session_state.pagina = "vehiculos"
-            st.rerun()
+    col1, col2, col3 = st.columns([1,2,1])
 
     with col2:
-        if st.button("Reportar demoras", use_container_width=True):
-            st.session_state.pagina = "demoras"
-            st.rerun()
+        usuario = st.text_input("Usuario")
+        password = st.text_input("Contraseña", type="password")
 
-    with col3:
-        if st.button("Apartados postales", use_container_width=True):
-            st.session_state.pagina = "apartados"
-            st.rerun()
+        if st.button("Ingresar", use_container_width=True):
 
-    with col4:
-        if st.button("No distribuibles", use_container_width=True):
-            st.session_state.pagina = "nodist"
-            st.rerun()
+            res = supabase.table("usuarios") \
+                .select("*") \
+                .eq("usuario", usuario) \
+                .execute()
+
+            if len(res.data) > 0:
+                user = res.data[0]
+
+                if user["password"] == password:
+                    st.session_state.user = user
+                    st.success("Bienvenida 🔥")
+                    st.rerun()
+                else:
+                    st.error("Contraseña incorrecta")
+            else:
+                st.error("Usuario no existe")
+
+# APP
+else:
+
+    if "pagina" not in st.session_state:
+        st.session_state.pagina = "inicio"
+
+    if st.session_state.pagina == "inicio":
+
+        st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
+        st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            if st.button("Gestión de vehículos", use_container_width=True):
+                st.session_state.pagina = "vehiculos"
+                st.rerun()
+
+        with col2:
+            if st.button("Reportar demoras", use_container_width=True):
+                st.session_state.pagina = "demoras"
+                st.rerun()
+
+        with col3:
+            if st.button("Apartados postales", use_container_width=True):
+                st.session_state.pagina = "apartados"
+                st.rerun()
+
+        with col4:
+            if st.button("No distribuibles", use_container_width=True):
+                st.session_state.pagina = "nodist"
+                st.rerun()
 
 # MÓDULO VEHICULOS
 
