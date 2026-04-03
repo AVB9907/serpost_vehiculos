@@ -136,37 +136,25 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* INDIGO GLASS */
+/* INDIGO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: rgba(43,45,66,0.35) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(43,45,66,0.4) !important;
+    background: #2b2d42cc !important;  /* 80% opacidad */
 }
 
-/* LAVENDER GLASS */
+/* LAVENDER GREY */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: rgba(141,153,174,0.35) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(141,153,174,0.4) !important;
+    background: #8d99aecc !important;
 }
 
-/* PLATINUM GLASS */
+/* PLATINUM */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: rgba(237,242,244,0.35) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(237,242,244,0.6) !important;
+    background: #edf2f4cc !important;
     color: #2b2d42 !important;
 }
 
-/* RED GLASS */
+/* PUNCH RED */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: rgba(239,35,60,0.35) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(239,35,60,0.5) !important;
+    background: #ef233ccc !important;
 }
 
 """, unsafe_allow_html=True)
