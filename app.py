@@ -57,6 +57,28 @@ div[data-testid="stForm"] button:active {
     box-shadow: none !important;
 }
 
+/* SIDEBAR BASE */
+section[data-testid="stSidebar"] {
+    background: rgba(43,45,66,0.95) !important;  /* tu índigo */
+}
+
+/* TEXTO SIDEBAR */
+section[data-testid="stSidebar"] * {
+    color: #edf2f4 !important;  /* platinum */
+}
+
+/* BOTÓN SIDEBAR */
+section[data-testid="stSidebar"] button {
+    background-color: rgba(141,153,174,0.2) !important;
+    color: #edf2f4 !important;
+    border-radius: 8px !important;
+}
+
+/* HOVER */
+section[data-testid="stSidebar"] button:hover {
+    background-color: rgba(141,153,174,0.4) !important;
+}
+
 /* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
