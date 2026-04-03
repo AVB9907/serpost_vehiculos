@@ -271,7 +271,7 @@ else:
         "TRUJILLO","TUMBES","VMT"
     ]
     
-    elif st.session_state.pagina == "vehiculos":
+    if st.session_state.pagina == "vehiculos":
 
     # ====================
     # MENÚ VEHICULOS
