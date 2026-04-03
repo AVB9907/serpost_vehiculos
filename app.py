@@ -132,10 +132,6 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
-    opacity: 1;
-}
-
 /* INDIGO PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
     background: #2b2d42b3 !important;
