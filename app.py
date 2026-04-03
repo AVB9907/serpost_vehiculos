@@ -300,7 +300,7 @@ else:
         "TRUJILLO","TUMBES","VMT"
     ]
 
-        elif st.session_state.pagina == "vehiculos":
+    elif st.session_state.pagina == "vehiculos":
         
             st.markdown("## Módulo Vehículos")
         
