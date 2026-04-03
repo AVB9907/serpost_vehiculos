@@ -214,20 +214,28 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
 
 """, unsafe_allow_html=True)
 
-# SUPABASE
+# ======================
+# SESSION USER
+# ======================
+if "user" not in st.session_state:
+    st.session_state.user = None
 
+# ======================
+# SUPABASE
+# ======================
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
 SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# INGRESAR
-
+# ======================
+# LOGIN
+# ======================
 if st.session_state.user is None:
 
     st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
-    
+
     col1, col2, col3 = st.columns([1,2,1])
-    
+
     with col2:
         with st.form("login_form"):
             usuario = st.text_input("Usuario")
@@ -248,21 +256,26 @@ if st.session_state.user is None:
                         st.error("Contraseña incorrecta")
                 else:
                     st.error("Usuario no existe")
-# APP
 
+# ======================
+# APP
+# ======================
 else:
 
     st.sidebar.write(f"{st.session_state.user['usuario']}")
-    
+
     if st.sidebar.button("Cerrar sesión"):
         st.session_state.user = None
         st.rerun()
-    
+
+    # ======================
+    # SESSION STATE
+    # ======================
     if "pagina" not in st.session_state:
         st.session_state.pagina = "inicio"
-    
+
     if "subpagina" not in st.session_state:
-    st.session_state.subpagina = "menu"
+        st.session_state.subpagina = "menu"
 
     ADMINISTRACIONES = [
         "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
@@ -273,161 +286,174 @@ else:
         "PUCALLPA","PUERTO MALDONADO","PUNO","TACNA","TARAPOTO",
         "TRUJILLO","TUMBES","VMT"
     ]
-    
-    if st.session_state.pagina == "vehiculos":
 
-    # ====================
-    # MENÚ VEHICULOS
-    # ====================
-    if st.session_state.subpagina == "menu":
+    # ======================
+    # INICIO
+    # ======================
+    if st.session_state.pagina == "inicio":
 
-        st.markdown("## Módulo Vehículos")
+        st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
+        st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
-        col1, col2 = st.columns(2)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            if st.button("Registrar vehículo"):
-                st.session_state.subpagina = "registro"
-                st.rerun()
-
-        with col2:
-            if st.button("Reportar incidencia"):
-                st.session_state.subpagina = "incidencia"
-                st.rerun()
-
-        # volver al inicio
-        with st.form("volver_main"):
-            if st.form_submit_button("← Volver"):
-                st.session_state.pagina = "inicio"
-                st.rerun()
-
-    # ====================
-    # REGISTRO
-    # ====================
-    elif st.session_state.subpagina == "registro":
-
-        st.markdown("## Registrar vehículo")
-
-        tipo = st.selectbox("Tipo", ["Moto", "Camioneta", "Bicicleta"])
-
-        if tipo != "Bicicleta":
-            placa = st.text_input("Placa")
-        else:
-            placa = "SIN-PLACA"
-
-        administracion = st.selectbox("Administración", ADMINISTRACIONES)
-        oficina = st.text_input("Oficina")
-        estado = st.selectbox("Estado", ["Operativo","En mantenimiento","Fuera de servicio"])
-        detalle = st.text_area("Detalle")
-
-        disabled = False
-        if tipo != "Bicicleta" and not placa:
-            disabled = True
-        if not oficina:
-            disabled = True
-
-        if st.button("Registrar", disabled=disabled):
-
-            supabase.table("vehiculos").insert({
-                "placa": placa,
-                "tipo": tipo,
-                "administracion": administracion,
-                "oficina": oficina,
-                "estado": estado,
-                "detalle": detalle,
-                "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            }).execute()
-
-            st.success("Registrado 🚀")
-
-        with st.form("volver_reg"):
-            if st.form_submit_button("← Volver"):
+            if st.button("Gestión de vehículos"):
+                st.session_state.pagina = "vehiculos"
                 st.session_state.subpagina = "menu"
                 st.rerun()
 
-    # ====================
-    # INCIDENCIAS
-    # ====================
-    elif st.session_state.subpagina == "incidencia":
+        with col2:
+            if st.button("Reportar demoras"):
+                st.session_state.pagina = "demoras"
+                st.rerun()
 
-        st.markdown("## Reportar incidencia")
+        with col3:
+            if st.button("Apartados postales"):
+                st.session_state.pagina = "apartados"
+                st.rerun()
 
-        vehiculos = supabase.table("vehiculos").select("placa").execute()
-        placas = [v["placa"] for v in vehiculos.data]
+        with col4:
+            if st.button("No distribuibles"):
+                st.session_state.pagina = "nodist"
+                st.rerun()
 
-        if not placas:
-            st.warning("No hay vehículos")
-        else:
-            placa = st.selectbox("Placa", placas)
-            tipo = st.selectbox("Tipo", ["Falla","Accidente","Retraso","Otro"])
+    # ======================
+    # VEHICULOS
+    # ======================
+    elif st.session_state.pagina == "vehiculos":
+
+        if st.session_state.subpagina == "menu":
+
+            st.markdown("## Módulo Vehículos")
+
+            col1, col2 = st.columns(2)
+
+            with col1:
+                if st.button("Registrar vehículo"):
+                    st.session_state.subpagina = "registro"
+                    st.rerun()
+
+            with col2:
+                if st.button("Reportar incidencia"):
+                    st.session_state.subpagina = "incidencia"
+                    st.rerun()
+
+            with st.form("volver_main"):
+                if st.form_submit_button("← Volver"):
+                    st.session_state.pagina = "inicio"
+                    st.rerun()
+
+        elif st.session_state.subpagina == "registro":
+
+            st.markdown("## Registrar vehículo")
+
+            tipo = st.selectbox("Tipo", ["Moto", "Camioneta", "Bicicleta"])
+
+            if tipo != "Bicicleta":
+                placa = st.text_input("Placa")
+            else:
+                placa = "SIN-PLACA"
+
+            administracion = st.selectbox("Administración", ADMINISTRACIONES)
+            oficina = st.text_input("Oficina")
+            estado = st.selectbox("Estado", ["Operativo","En mantenimiento","Fuera de servicio"])
             detalle = st.text_area("Detalle")
 
-            if st.button("Reportar"):
-                supabase.table("reportes").insert({
+            disabled = False
+            if tipo != "Bicicleta" and not placa:
+                disabled = True
+            if not oficina:
+                disabled = True
+
+            if st.button("Registrar", disabled=disabled):
+
+                if tipo != "Bicicleta":
+                    existente = supabase.table("vehiculos").select("*").eq("placa", placa).execute()
+                    if len(existente.data) > 0:
+                        st.error("❌ Esta placa ya existe")
+                        st.stop()
+
+                supabase.table("vehiculos").insert({
                     "placa": placa,
-                    "tipo_incidente": tipo,
+                    "tipo": tipo,
+                    "administracion": administracion,
+                    "oficina": oficina,
+                    "estado": estado,
                     "detalle": detalle,
                     "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }).execute()
 
-                st.success("Incidencia registrada 🚨")
+                st.success("Vehículo registrado 🚀")
 
-        with st.form("volver_inc"):
-            if st.form_submit_button("← Volver"):
-                st.session_state.subpagina = "menu"
-                st.rerun()
-        
+            with st.form("volver_reg"):
+                if st.form_submit_button("← Volver"):
+                    st.session_state.subpagina = "menu"
+                    st.rerun()
+
+        elif st.session_state.subpagina == "incidencia":
+
+            st.markdown("## Reportar incidencia")
+
+            vehiculos = supabase.table("vehiculos").select("placa").execute()
+            placas = [v["placa"] for v in vehiculos.data]
+
+            if not placas:
+                st.warning("No hay vehículos registrados")
+            else:
+                placa = st.selectbox("Placa", placas)
+                tipo = st.selectbox("Tipo", ["Falla","Accidente","Retraso","Otro"])
+                detalle = st.text_area("Detalle")
+
+                if st.button("Reportar"):
+                    supabase.table("reportes").insert({
+                        "placa": placa,
+                        "tipo_incidente": tipo,
+                        "detalle": detalle,
+                        "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    }).execute()
+
+                    st.success("Incidencia registrada 🚨")
+
+            with st.form("volver_inc"):
+                if st.form_submit_button("← Volver"):
+                    st.session_state.subpagina = "menu"
+                    st.rerun()
+
+    # ======================
+    # DEMORAS
+    # ======================
     elif st.session_state.pagina == "demoras":
-        
+
         st.markdown("## Demoras Operativas")
-        st.markdown("Reporta problemas por clima, huaicos u otros eventos")
-        
+
         st.link_button(
-            "Ir al formulario de demoras",
-            "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
+            "Ir al formulario",
+            "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
         )
-        
-        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
 
-        with st.form("volver_form", clear_on_submit=False):
-            volver = st.form_submit_button("← Volver")
-        
-            if volver:
+        with st.form("volver_demoras"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-    
-    
+
+    # ======================
+    # OTROS
+    # ======================
     elif st.session_state.pagina == "apartados":
-        
+
         st.markdown("## Apartados Postales")
-        st.write("Módulo en construcción")
-        
-        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
 
-        with st.form("volver_form", clear_on_submit=False):
-            volver = st.form_submit_button("← Volver")
-        
-            if volver:
+        with st.form("volver_apartados"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-    
-    
+
     elif st.session_state.pagina == "nodist":
-        
-        st.markdown("## Envíos no distribuibles")
-        st.write("Módulo en construcción")
-        
-        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
 
-        with st.form("volver_form", clear_on_submit=False):
-            volver = st.form_submit_button("← Volver")
-        
-            if volver:
+        st.markdown("## No distribuibles")
+
+        with st.form("volver_nodist"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
-        
-        st.markdown('</div>', unsafe_allow_html=True)
