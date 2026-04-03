@@ -50,8 +50,6 @@ div[data-testid="stForm"] button {
     font-size: 14px !important;
 }
 
-}
-
 /* QUITAR EFECTOS DE TEMA */
 div[data-testid="stForm"] button:focus,
 div[data-testid="stForm"] button:active {
@@ -92,33 +90,6 @@ h2 {
 p {
     color: #f0f0f0 !important;
     font-size: 25px;
-}
-
-/* TARJETAS (reemplazo visual de botones) */
-div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-
-    height: 180px !important;
-    border-radius: 20px !important;
-
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 20px !important;
-    font-weight: 600;
-
-    color: white !important;
-
-    background: linear-gradient(135deg, #0ea5e9, #2563eb) !important;
-
-    border: none !important;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
-    transition: all 0.25s ease;
 }
 
 /* 🔥 CARDS NIVEL DIOS */
