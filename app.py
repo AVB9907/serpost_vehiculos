@@ -92,7 +92,7 @@ p {
     font-size: 25px;
 }
 
-/* 🔥 CARDS NIVEL DIOS */
+/* CARDS NIVEL DIOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
@@ -124,19 +124,6 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
 
     position: relative;
     overflow: hidden;
-}
-
-/* BRILLO INTERNO */
-div[data-testid="stHorizontalBlock"] div.stButton > button::before {
-    content: "";
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
-    top: -20%;
-    left: -20%;
-    opacity: 0;
-    transition: 0.3s;
 }
 
 /* HOVER PRO */
