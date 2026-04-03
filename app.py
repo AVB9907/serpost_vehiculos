@@ -149,21 +149,21 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* COLORES PRO */
+/* COLORES PRO TRANSPARENTES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: linear-gradient(135deg, #10b981, #047857) !important;
+    background: linear-gradient(135deg, rgba(16,185,129,0.85), rgba(4,120,87,0.85)) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: linear-gradient(135deg, #f59e0b, #b45309) !important;
+    background: linear-gradient(135deg, rgba(245,158,11,0.85), rgba(180,83,9,0.85)) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: linear-gradient(135deg, #6366f1, #3730a3) !important;
+    background: linear-gradient(135deg, rgba(99,102,241,0.85), rgba(55,48,163,0.85)) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    background: linear-gradient(135deg, rgba(239,68,68,0.85), rgba(153,27,27,0.85)) !important;
 }
 
 /* EFECTO GLOW ABAJO */
