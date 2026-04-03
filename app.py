@@ -200,7 +200,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
 
 /* PUNCH RED PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: #ef233cb3 !important;
+    background: #ef233cb80 !important;
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
