@@ -124,27 +124,90 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     transition: all 0.25s ease;
 }
 
-/* 🔥 HOVER PRO */
-div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+/* 🔥 CARDS NIVEL DIOS */
+div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
+div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
+
+    height: 200px !important;
+    border-radius: 22px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    font-size: 20px !important;
+    font-weight: 600;
+
+    color: white !important;
+
+    border: 1px solid rgba(255,255,255,0.15) !important;
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+    transition: all 0.25s ease;
+
+    position: relative;
+    overflow: hidden;
 }
 
-/* 🔥 COLORES DIFERENTES POR CARD */
+/* ✨ BRILLO INTERNO */
+div[data-testid="stHorizontalBlock"] div.stButton > button::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+    top: -20%;
+    left: -20%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* 🔥 HOVER PRO */
+div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
+    opacity: 1;
+}
+
+/* 🎨 COLORES PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: linear-gradient(135deg, #10b981, #065f46) !important;
+    background: linear-gradient(135deg, #10b981, #047857) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: linear-gradient(135deg, #f59e0b, #92400e) !important;
+    background: linear-gradient(135deg, #f59e0b, #b45309) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: linear-gradient(135deg, #6366f1, #312e81) !important;
+    background: linear-gradient(135deg, #6366f1, #3730a3) !important;
 }
 
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: linear-gradient(135deg, #ef4444, #7f1d1d) !important;
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+}
+
+/* 🔥 EFECTO GLOW ABAJO */
+div[data-testid="stHorizontalBlock"] div.stButton > button::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    width: 40%;
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.6);
+    opacity: 0.6;
 }
 
 /* CERRAR SESION */
