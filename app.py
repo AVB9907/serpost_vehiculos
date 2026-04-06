@@ -114,7 +114,7 @@ p {
     font-size: 25px;
 }
 
-/* CARDS NIVEL DIOS */
+/* CARDS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
@@ -148,13 +148,13 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     overflow: hidden;
 }
 
-/* HOVER PRO */
+/* HOVER */
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* INDIGO PRO */
+/* INDIGO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
     background: #2b2d42b3 !important;
 
@@ -168,7 +168,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
         0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* LAVENDER GREY PRO */
+/* LAVENDER GREY */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
     background: #8d99aeb3 !important;
 
@@ -182,7 +182,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
         0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* PLATINUM PRO */
+/* PLATINUM */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
     background: #edf2f4b3 !important;
 
