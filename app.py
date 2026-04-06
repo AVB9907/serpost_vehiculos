@@ -114,39 +114,7 @@ p {
     font-size: 25px;
 }
 
-/* CARDS */
-div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
 
-    height: 200px !important;
-    border-radius: 22px !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    font-size: 20px !important;
-    font-weight: 600;
-
-    color: white !important;
-
-    border: 1px solid rgba(255,255,255,0.15) !important;
-
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-
-    transition: all 0.25s ease;
-
-    position: relative;
-    overflow: hidden;
-}
 
 /* HOVER */
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
