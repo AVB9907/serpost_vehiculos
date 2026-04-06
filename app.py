@@ -371,7 +371,7 @@ else:
                 if tipo != "Bicicleta":
                     existente = supabase.table("vehiculos").select("*").eq("placa", placa).execute()
                     if len(existente.data) > 0:
-                        st.error("❌ Esta placa ya existe")
+                        st.error("Esta placa ya existe")
                         st.stop()
 
                 supabase.table("vehiculos").insert({
@@ -384,7 +384,7 @@ else:
                     "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }).execute()
 
-                st.success("Vehículo registrado 🚀")
+                st.success("Vehículo registrado")
 
             with st.form("volver_reg"):
                 if st.form_submit_button("← Volver"):
@@ -413,7 +413,7 @@ else:
                         "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     }).execute()
 
-                    st.success("Incidencia registrada 🚨")
+                    st.success("Incidencia registrada")
 
             with st.form("volver_inc"):
                 if st.form_submit_button("← Volver"):
