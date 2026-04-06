@@ -14,6 +14,15 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
+/* USERNAME */
+.sidebar-user {
+    text-align: left !important;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+}
+
 /* TÍTULOS */
 div[data-testid="stMarkdownContainer"] h2 {
     color: #f0f0f0 !important;
@@ -85,12 +94,12 @@ div[data-testid="stForm"] button:active {
 
 /* SIDEBAR BASE */
 section[data-testid="stSidebar"] {
-    background: rgba(43,45,66,0.95) !important;  /* tu índigo */
+    background: rgba(43,45,66,0.95) !important; 
 }
 
 /* TEXTO SIDEBAR */
 section[data-testid="stSidebar"] * {
-    color: #edf2f4 !important;  /* platinum */
+    color: #edf2f4 !important;  
 }
 
 /* BOTÓN SIDEBAR */
@@ -255,7 +264,10 @@ if st.session_state.user is None:
 # ======================
 else:
 
-    st.sidebar.write(f"{st.session_state.user['usuario']}")
+    st.sidebar.markdown(
+    f'<div class="sidebar-user">{st.session_state.user["usuario"]}</div>',
+    unsafe_allow_html=True
+)
 
     if st.sidebar.button("Cerrar sesión"):
         st.session_state.user = None
