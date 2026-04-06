@@ -14,20 +14,19 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
-/* TÍTULO */
-.titulo {
-    font-size: 40px !important;
-    font-weight: 800 !important;
+/* TÍTULOS */
+div[data-testid="stMarkdownContainer"] h2 {
     color: #f0f0f0 !important;
     text-align: center !important;
-    margin-bottom: 30px !important;
+    font-size: 40px !important;
+    font-weight: 800 !important;
 }
 
-/* SUBTÍTULO */
-.sub {
-    text-align: center;
+/* TEXTO */
+div[data-testid="stMarkdownContainer"] p {
     color: #f0f0f0 !important;
     font-size: 20px !important;
+    text-align: center !important;
 }
 
 /* TÍTULOS DENTRO DE LOS MÓDULOS */
