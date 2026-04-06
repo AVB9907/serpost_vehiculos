@@ -121,13 +121,8 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 }
 
 /* BOTONES BASE */
-div[data-testid="stHorizontalBlock"] > div {
-    display: flex;
-    justify-content: center;
-}
-
 div[data-testid="stHorizontalBlock"] > div div.stButton > button {
-    width: 160% !important;
+    width: 100% !important;
     height: 220px !important;
 
     border-radius: 22px !important;
@@ -138,8 +133,6 @@ div[data-testid="stHorizontalBlock"] > div div.stButton > button {
 
     font-size: 20px !important;
     font-weight: 600;
-
-    padding: 20px !important;
 }
 
 /* 1️⃣ VEHICULOS */
@@ -300,7 +293,7 @@ else:
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            if st.button("Gestión de vehículos"):
+            if st.button("Gestión de vehículos", use_container_width=True):
                 st.session_state.pagina = "vehiculos"
                 st.session_state.subpagina = "menu"
                 st.rerun()
