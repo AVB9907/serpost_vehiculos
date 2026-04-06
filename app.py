@@ -120,8 +120,8 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* BOTONES BASE */
-div[data-testid="stHorizontalBlock"] > div div.stButton > button {
+/* BOTONES */
+div[data-testid="stHorizontalBlock"] div.stButton > button {
     width: 100% !important;
     height: 220px !important;
 
