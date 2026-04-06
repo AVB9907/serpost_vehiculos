@@ -154,33 +154,34 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* SOLO BOTONES GRANDES (NO TOCA OTROS) */
-div[data-testid="stHorizontalBlock"] button[kind="secondary"] {
+/* BOTONES BASE */
+div[data-testid="stHorizontalBlock"] > div div.stButton > button {
     height: 200px !important;
     border-radius: 22px !important;
     font-size: 20px !important;
     font-weight: 600;
+    color: white !important;
 }
 
-/* PRIMER BOTON */
-div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(1) {
-    background: #2b2d42b3 !important;
+/* 1️⃣ VEHICULOS */
+div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
+    background: #2b2d42cc !important;
 }
 
-/* SEGUNDO */
-div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(2) {
-    background: #8d99aeb3 !important;
+/* 2️⃣ DEMORAS */
+div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
+    background: #8d99aecc !important;
 }
 
-/* TERCERO */
-div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(3) {
-    background: #edf2f4b3 !important;
+/* 3️⃣ APARTADOS */
+div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
+    background: #edf2f4cc !important;
     color: #2b2d42 !important;
 }
 
-/* CUARTO */
-div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(4) {
-    background: #ef233c !important;
+/* 4️⃣ NO DISTRIBUIBLES */
+div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
+    background: #ef233ccc !important;
 }
 
 """, unsafe_allow_html=True)
