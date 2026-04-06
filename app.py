@@ -299,17 +299,17 @@ else:
                 st.rerun()
 
         with col2:
-            if st.button("Reportar demoras"):
+            if st.button("Reportar demoras", use_container_width=True):
                 st.session_state.pagina = "demoras"
                 st.rerun()
 
         with col3:
-            if st.button("Apartados postales"):
+            if st.button("Apartados postales", use_container_width=True):
                 st.session_state.pagina = "apartados"
                 st.rerun()
 
         with col4:
-            if st.button("No distribuibles"):
+            if st.button("No distribuibles", use_container_width=True):
                 st.session_state.pagina = "nodist"
                 st.rerun()
 
@@ -327,12 +327,12 @@ else:
             col1, col2 = st.columns(2)
 
             with col1:
-                if st.button("Registrar vehículo"):
+                if st.button("Registrar vehículo", use_container_width=True):
                     st.session_state.subpagina = "registro"
                     st.rerun()
 
             with col2:
-                if st.button("Reportar incidencia"):
+                if st.button("Reportar incidencia", use_container_width=True):
                     st.session_state.subpagina = "incidencia"
                     st.rerun()
 
