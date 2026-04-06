@@ -114,8 +114,6 @@ p {
     font-size: 25px;
 }
 
-
-
 /* HOVER */
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     transform: translateY(-8px) scale(1.03);
@@ -123,12 +121,25 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 }
 
 /* BOTONES BASE */
+div[data-testid="stHorizontalBlock"] > div {
+    display: flex;
+    justify-content: center;
+}
+
 div[data-testid="stHorizontalBlock"] > div div.stButton > button {
-    height: 200px !important;
+    width: 90% !important;
+    height: 220px !important;
+
     border-radius: 22px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
     font-size: 20px !important;
     font-weight: 600;
-    color: white !important;
+
+    padding: 20px !important;
 }
 
 /* 1️⃣ VEHICULOS */
