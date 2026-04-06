@@ -127,7 +127,7 @@ div[data-testid="stHorizontalBlock"] > div {
 }
 
 div[data-testid="stHorizontalBlock"] > div div.stButton > button {
-    width: 200% !important;
+    width: 160% !important;
     height: 220px !important;
 
     border-radius: 22px !important;
