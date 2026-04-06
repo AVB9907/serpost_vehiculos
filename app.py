@@ -270,7 +270,7 @@ else:
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            if st.button("Gestión de vehículos"):
+            if st.button("Gestión de vehículos", type="secondary"):
                 st.session_state.pagina = "vehiculos"
                 st.session_state.subpagina = "menu"
                 st.rerun()
