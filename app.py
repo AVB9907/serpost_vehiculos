@@ -164,7 +164,12 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     background: #ef233ccc !important;
 }
 
-/* HOVER PRO NIVEL EMPRESA */
+/* REGISTRO TERCEROS */
+div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
+    background: #22c55ecc !important;  /* pick any color */
+}
+
+/* HOVER */
 div[data-testid="stHorizontalBlock"] div.stButton > button {
     transition: all 0.25s ease !important;
     position: relative;
@@ -484,8 +489,8 @@ else:
     elif st.session_state.pagina == "RT":
     
         st.markdown("## REPORTE TERCEROS")
-    
-         with st.form("volver_RT"):
+        
+        with st.form("volver_RT"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
