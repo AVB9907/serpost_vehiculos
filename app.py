@@ -155,7 +155,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
 
 /* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
-    background: #3b82f6cc !important;
+    background: #1e293bcc !important;
     color: #2b2d42 !important;
 }
 
