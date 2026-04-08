@@ -481,11 +481,11 @@ else:
     # REPORTE TERCEROS
     # ======================
 
-    elif st.session_state.pagina == "nodist":
+    elif st.session_state.pagina == "RT":
     
         st.markdown("## REPORTE TERCEROS")
     
-         with st.form(""):
+         with st.form("RT"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
