@@ -155,13 +155,13 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
 
 /* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
-    background: #1e293bcc !important;
+    background: #f1f5f9cc !important;
     color: #2b2d42 !important;
 }
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #991b1bcc !important;
+    background: #f5f5dccc !important;
 }
 
 /* REGISTRO TERCEROS */
