@@ -301,7 +301,7 @@ else:
         st.write("Seleccione un módulo")
         st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(5)
 
         with col1:
             if st.button("Gestión de vehículos", use_container_width=True):
@@ -323,7 +323,13 @@ else:
             if st.button("No distribuibles", use_container_width=True):
                 st.session_state.pagina = "nodist"
                 st.rerun()
+                
+        with col5:
+                    if st.button("REGISTRO TERCEROS", use_container_width=True):
+                        st.session_state.pagina = "RT"
+                        st.rerun()
 
+        
         st.markdown('</div>', unsafe_allow_html=True)
         
     # ======================
@@ -467,6 +473,19 @@ else:
         st.markdown("## No distribuibles")
 
         with st.form("volver_nodist"):
+            if st.form_submit_button("← Volver"):
+                st.session_state.pagina = "inicio"
+                st.rerun()
+
+    # ======================
+    # REPORTE TERCEROS
+    # ======================
+
+  elif st.session_state.pagina == "nodist":
+
+        st.markdown("## REPORTE TERCEROS")
+
+        with st.form(""):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
