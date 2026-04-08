@@ -161,12 +161,12 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #ed5151cc !important;
+    background: #AD3E3Ecc !important;
 }
 
 /* REGISTRO TERCEROS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
-    background: #850000cc !important; 
+    background: #ab0000cc !important; 
 }
 
 /* HOVER */
