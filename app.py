@@ -488,59 +488,51 @@ else:
 
     elif st.session_state.pagina == "RT":
     
-        st.markdown("## REPORTE TERCEROS")
-        
+        st.markdown("## Registro de terceros")
+    
+        data = supabase.table("BD_TERCEROS").select("*").execute().data
+    
+        if not data:
+            st.warning("No hay datos cargados en BD_TERCEROS")
+        else:
+            import pandas as pd
+    
+            df = pd.DataFrame(data)
+
+            administraciones = sorted(df["ADMINISTRACIÓN"].dropna().unique())
+    
+            admin_sel = st.selectbox("Administración", administraciones)
+    
+            personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
+    
+            persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
+
+            meses = [
+                "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+                "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+            ]
+    
+            mes_sel = st.selectbox("Mes", meses)
+
+            monto = st.number_input("Monto", min_value=0.0, step=10.0)
+    
+            if st.button("Registrar"):
+    
+                if monto <= 0:
+                    st.error("Ingrese un monto válido")
+                else:
+    
+                    supabase.table("bd_gastos").insert({
+                        "administracion": admin_sel,
+                        "nombre": persona_sel,
+                        "mes": mes_sel,
+                        "monto": monto
+                    }).execute()
+    
+                    st.success("Registro guardado correctamente")
+
+    
         with st.form("volver_RT"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
-    if not os.path.exists(RUTA_DB):
-        df_vacio = pd.DataFrame(columns=[
-            "ADMINISTRACION", "NOMBRE", "MES", "MONTO", "FECHA"
-        ])
-        df_vacio.to_excel(RUTA_DB, index=False)
-
-admins = df["ADMINISTRACIÓN"].dropna().unique()
-
-print("\nADMINISTRACIONES:")
-for i, a in enumerate(admins):
-    print(f"{i+1}. {a}")
-
-op_admin = int(input("Seleccione administración: "))
-admin_sel = admins[op_admin - 1]
-
-personas = df[df["ADMINISTRACIÓN"] == admin_sel]["NOMBRES Y APELLIDOS"].dropna().unique()
-
-print("\nPERSONAS:")
-for i, p in enumerate(personas):
-    print(f"{i+1}. {p}")
-
-op_persona = int(input("Seleccione persona: "))
-persona_sel = personas[op_persona - 1]
-
-meses = [
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-]
-
-print("\nMESES:")
-for i, m in enumerate(meses):
-    print(f"{i+1}. {m}")
-
-op_mes = int(input("Seleccione mes: "))
-mes_sel = meses[op_mes - 1]
-
-monto = float(input("Ingrese monto: "))
-
-nuevo = pd.DataFrame([{
-    "ADMINISTRACION": admin_sel,
-    "NOMBRE": persona_sel,
-    "MES": mes_sel,
-    "MONTO": monto,
-    "FECHA": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-}])
-
-df_db = pd.read_excel(RUTA_DB)
-df_total = pd.concat([df_db, nuevo], ignore_index=True)
-
-df_total.to_excel(RUTA_DB, index=False)
