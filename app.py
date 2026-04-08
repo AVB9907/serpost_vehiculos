@@ -330,7 +330,7 @@ else:
                 st.rerun()
                 
         with col5:
-                    if st.button("REGISTRO TERCEROS", use_container_width=True):
+                    if st.button("Registro terceros", use_container_width=True):
                         st.session_state.pagina = "RT"
                         st.rerun()
 
