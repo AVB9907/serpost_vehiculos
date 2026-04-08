@@ -485,54 +485,67 @@ else:
     # ======================
     # REPORTE TERCEROS
     # ======================
+elif st.session_state.pagina == "RT":
 
-    elif st.session_state.pagina == "RT":
-    
-        st.markdown("## Registro de terceros")
-    
-        data = supabase.table("REPORTE_TERCEROS").select("*").execute().data
-    
-        if not data:
-            st.warning("No hay datos cargados en BD_TERCEROS")
+    st.markdown("## Registro de terceros")
+
+    # Obtener datos de Supabase (tabla de personas)
+    data = supabase.table("reportes_terceros").select("*").execute().data
+
+    if not data:
+        st.warning("No hay datos cargados en reportes_terceros")
+    else:
+        import pandas as pd
+
+        df = pd.DataFrame(data)
+
+        # Limpiar nombres de columnas si es necesario
+        df.columns = df.columns.str.strip().str.upper()
+
+        # Selección de administración
+        administraciones = sorted(df["ADMINISTRACIÓN"].dropna().unique())
+        admin_sel = st.selectbox("Administración", administraciones)
+
+        # Selección de persona según administración
+        personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
+        persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
+
+        # Selección de mes
+        meses = [
+            "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+            "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+        ]
+        mes_sel = st.selectbox("Mes", meses)
+
+        # Monto con decimales
+        monto = st.number_input("Monto", min_value=0.0, step=0.01, format="%.2f")
+
+        # Botón para registrar
+        if st.button("Registrar"):
+
+            if monto <= 0:
+                st.error("Ingrese un monto válido")
+            else:
+                # Guardar en Supabase (tabla bd_gastos)
+                supabase.table("bd_gastos").insert({
+                    "administracion": admin_sel,
+                    "nombre": persona_sel,
+                    "mes": mes_sel,
+                    "monto": float(monto)
+                }).execute()
+
+                st.success(f"✅ Registro guardado: {persona_sel} - {mes_sel} - {monto:.2f}")
+
+        # Mostrar registros guardados
+        st.markdown("### Todos los registros")
+        registros = supabase.table("bd_gastos").select("*").order("fecha", desc=True).execute().data
+        if registros:
+            st.dataframe(pd.DataFrame(registros), use_container_width=True)
         else:
-            import pandas as pd
-    
-            df = pd.DataFrame(data)
+            st.info("No hay registros guardados aún")
 
-            administraciones = sorted(df["ADMINISTRACIÓN"].dropna().unique())
-    
-            admin_sel = st.selectbox("Administración", administraciones)
-    
-            personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
-    
-            persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
-
-            meses = [
-                "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-                "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-            ]
-    
-            mes_sel = st.selectbox("Mes", meses)
-
-            monto = st.number_input("Monto", min_value=0.0, step=10.0)
-    
-            if st.button("Registrar"):
-    
-                if monto <= 0:
-                    st.error("Ingrese un monto válido")
-                else:
-    
-                    supabase.table("bd_gastos").insert({
-                        "administracion": admin_sel,
-                        "nombre": persona_sel,
-                        "mes": mes_sel,
-                        "monto": monto
-                    }).execute()
-    
-                    st.success("Registro guardado correctamente")
-
-    
-        with st.form("volver_RT"):
-            if st.form_submit_button("← Volver"):
-                st.session_state.pagina = "inicio"
-                st.rerun()
+    # Botón para volver
+    with st.form("volver_RT"):
+        if st.form_submit_button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
