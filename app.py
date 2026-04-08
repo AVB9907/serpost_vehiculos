@@ -161,7 +161,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #f5f5dccc !important;
+    background: #CDC2ACcc !important;
 }
 
 /* REGISTRO TERCEROS */
