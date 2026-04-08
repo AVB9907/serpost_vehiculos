@@ -485,7 +485,7 @@ else:
     
         st.markdown("## REPORTE TERCEROS")
     
-         with st.form("RT"):
+         with st.form("volver_RT"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
