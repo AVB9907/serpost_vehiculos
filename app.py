@@ -330,9 +330,9 @@ else:
                 st.rerun()
                 
         with col5:
-                    if st.button("REGISTRO TERCEROS", use_container_width=True):
-                        st.session_state.pagina = "RT"
-                        st.rerun()
+            if st.button("Registros terceros", use_container_width=True):
+                st.session_state.pagina = "RT"
+                st.rerun()
 
         
         st.markdown('</div>', unsafe_allow_html=True)
