@@ -145,28 +145,28 @@ div[data-testid="stHorizontalBlock"] div.stButton > button {
 
 /* VEHICULOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
-    background: #2b2d42cc !important;
+    background: ##0E2A47CC !important;
 }
 
 /* DEMORAS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
-    background: #8d99aecc !important;
+    background: #2B4F7CCC !important;
 }
 
 /* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
-    background: #edf2f4cc !important;
+    background: #D6DEE9CC !important;
     color: #2b2d42 !important;
 }
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #ef233ccc !important;
+    background: ##B8BDC4CC !important;
 }
 
 /* REGISTRO TERCEROS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
-    background: #22c55ecc !important;  /* pick any color */
+    background: #A80E1ACC !important;  /* pick any color */
 }
 
 /* HOVER */
