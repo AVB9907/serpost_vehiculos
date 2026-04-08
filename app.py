@@ -145,28 +145,28 @@ div[data-testid="stHorizontalBlock"] div.stButton > button {
 
 /* VEHICULOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
-    background: #0f172acc !important;
+    background: #2b2d42cc !important;
 }
 
 /* DEMORAS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
-    background: #1e3a5fcc !important;
+    background: #8d99aecc !important;
 }
 
 /* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
-    background: #f1f5f9cc !important;
+    background: #edf2f4cc !important;
     color: #2b2d42 !important;
 }
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #CDC2ACcc !important;
+    background: #ef233ccc !important;
 }
 
 /* REGISTRO TERCEROS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
-    background: #A60505cc !important; 
+    background: #22c55ecc !important;  /* pick any color */
 }
 
 /* HOVER */
@@ -330,9 +330,9 @@ else:
                 st.rerun()
                 
         with col5:
-            if st.button("Registros terceros", use_container_width=True):
-                st.session_state.pagina = "RT"
-                st.rerun()
+                    if st.button("REGISTRO TERCEROS", use_container_width=True):
+                        st.session_state.pagina = "RT"
+                        st.rerun()
 
         
         st.markdown('</div>', unsafe_allow_html=True)
@@ -494,3 +494,72 @@ else:
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+    if not os.path.exists(RUTA_DB):
+    df_vacio = pd.DataFrame(columns=[
+        "ADMINISTRACION", "NOMBRE", "MES", "MONTO", "FECHA"
+    ])
+    df_vacio.to_excel(RUTA_DB, index=False)
+
+# =========================
+# 1. ADMINISTRACIÓN
+# =========================
+admins = df["ADMINISTRACIÓN"].dropna().unique()
+
+print("\nADMINISTRACIONES:")
+for i, a in enumerate(admins):
+    print(f"{i+1}. {a}")
+
+op_admin = int(input("Seleccione administración: "))
+admin_sel = admins[op_admin - 1]
+
+# =========================
+# 2. PERSONAS
+# =========================
+personas = df[df["ADMINISTRACIÓN"] == admin_sel]["NOMBRES Y APELLIDOS"].dropna().unique()
+
+print("\nPERSONAS:")
+for i, p in enumerate(personas):
+    print(f"{i+1}. {p}")
+
+op_persona = int(input("Seleccione persona: "))
+persona_sel = personas[op_persona - 1]
+
+# =========================
+# 3. MES
+# =========================
+meses = [
+    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+]
+
+print("\nMESES:")
+for i, m in enumerate(meses):
+    print(f"{i+1}. {m}")
+
+op_mes = int(input("Seleccione mes: "))
+mes_sel = meses[op_mes - 1]
+
+# =========================
+# 4. MONTO
+# =========================
+monto = float(input("Ingrese monto: "))
+
+# =========================
+# GUARDAR
+# =========================
+nuevo = pd.DataFrame([{
+    "ADMINISTRACION": admin_sel,
+    "NOMBRE": persona_sel,
+    "MES": mes_sel,
+    "MONTO": monto,
+    "FECHA": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+}])
+
+df_db = pd.read_excel(RUTA_DB)
+df_total = pd.concat([df_db, nuevo], ignore_index=True)
+
+df_total.to_excel(RUTA_DB, index=False)
+
+print("\n✅ Registro guardado correctamente")
+
+
