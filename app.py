@@ -166,7 +166,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
 
 /* REGISTRO TERCEROS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
-    background: #a11313cc !important; 
+    background: #850000cc !important; 
 }
 
 /* HOVER */
