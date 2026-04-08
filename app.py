@@ -150,23 +150,23 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
 
 /* DEMORAS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
-    background: #134e4acc !important;
+    background: #1e3a5fcc !important;
 }
 
 /* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
-    background: #0ea5e9cc !important;
+    background: #3b82f6cc !important;
     color: #2b2d42 !important;
 }
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: #22d3eecc !important;
+    background: #991b1bcc !important;
 }
 
 /* REGISTRO TERCEROS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(5) div.stButton > button {
-    background: #67e8f9cc !important; 
+    background: #7f1d1dcc !important; 
 }
 
 /* HOVER */
