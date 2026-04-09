@@ -487,6 +487,8 @@ else:
     # ======================
 
     elif st.session_state.pagina == "RT":
+
+        import pandas as pd
     
         st.markdown("## Registro de terceros")
     
@@ -494,44 +496,43 @@ else:
     
         if not data:
             st.warning("No hay datos cargados en BD_TERCEROS")
-        else:
-            import pandas as pd
     
+        else:
             df = pd.DataFrame(data)
-
+    
             administraciones = sorted(df["ADMINISTRACIÓN"].dropna().unique())
     
-            admin_sel = st.selectbox("Administración", administraciones)
-    
-            personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
-    
-            persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
-
             meses = [
                 "Enero","Febrero","Marzo","Abril","Mayo","Junio",
                 "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
             ]
     
-            mes_sel = st.selectbox("Mes", meses)
-
-            monto = st.number_input("Monto", min_value=0.0, step=10.0)
+            with st.form("registro_terceros"):
     
-            if st.button("Registrar", disabled=disabled):
+                admin_sel = st.selectbox("Administración", administraciones)
     
-                if monto <= 0:
-                    st.error("Ingrese un monto válido")
-                else:
+                personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
+                persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
     
-                    supabase.table("bd_gastos").insert({
-                        "administracion": admin_sel,
-                        "nombre": persona_sel,
-                        "mes": mes_sel,
-                        "monto": monto
-                    }).execute()
+                mes_sel = st.selectbox("Mes", meses)
     
-                    st.success("Registro guardado correctamente")
-
-        with st.form("volver_RT"):
-            if st.form_submit_button("← Volver"):
-                st.session_state.pagina = "inicio"
-                st.rerun()
+                monto = st.number_input("Monto", min_value=0.0, step=10.0)
+    
+                submitted = st.form_submit_button("Registrar")
+    
+                if submitted:
+                    if monto <= 0:
+                        st.error("Ingrese un monto válido")
+                    else:
+                        supabase.table("bd_gastos").insert({
+                            "administracion": admin_sel,
+                            "nombre": persona_sel,
+                            "mes": mes_sel,
+                            "monto": monto
+                        }).execute()
+    
+                        st.success("Registro guardado correctamente")
+    
+        if st.button("← Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
