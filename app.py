@@ -498,7 +498,7 @@ else:
                 with col2:
                     direccion = st.text_input("Dirección")
                     motivo = st.selectbox("Motivo", MOTIVOS)
-                    fecha = st.date_input("Fecha de ingreso")
+                    fecha = st.date_input("fecha")
         
                 obs = st.text_area("Observaciones")
         
