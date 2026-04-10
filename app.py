@@ -444,19 +444,20 @@ else:
     # ======================
     elif st.session_state.pagina == "demoras":
 
-        st.markdown("## Demoras Operativas")
+    st.markdown("## Demoras Operativas")
 
-        st.markdown(
-           
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
-            width="100%"
-            height="800"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0">
-            </iframe>
-            unsafe_allow_html=True
-        )
+    st.markdown(
+        """
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?embedded=true"
+        width="100%"
+        height="800"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        </iframe>
+        """,
+        unsafe_allow_html=True
+    )
 
         with st.form("volver_demoras"):
             if st.form_submit_button("← Volver"):
