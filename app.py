@@ -528,7 +528,6 @@ else:
                         "fecha": str(fecha),
                         "observacion": obs.strip(),
                         "usuario": st.session_state.user["usuario"],
-                        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     }).execute()
         
                     st.success("Registro guardado correctamente")
