@@ -480,10 +480,9 @@ else:
         
             MOTIVOS = [
                 "AUSENTE",
-                "DIRECCIÓN INSUFICIENTE",
+                "DIRECCIÓN ERRADA",
                 "NO RECLAMADO",
-                "RECHAZADO",
-                "FALLECIDO",
+                "DEFICIENTE",
                 "OTROS"
             ]
         
@@ -499,7 +498,7 @@ else:
                 with col2:
                     direccion = st.text_input("Dirección")
                     motivo = st.selectbox("Motivo", MOTIVOS)
-                    fecha = st.date_input("Fecha")
+                    fecha = st.date_input("Fecha de ingreso")
         
                 obs = st.text_area("Observaciones")
         
