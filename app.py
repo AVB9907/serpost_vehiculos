@@ -446,9 +446,17 @@ else:
 
         st.markdown("## Demoras Operativas")
 
-        st.link_button(
-            "Ir al formulario",
-            "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
+        st.markdown(
+            """
+            <iframe src=""https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform""
+            width="100%"
+            height="800"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0">
+            Cargando…
+            </iframe>
+            unsafe_allow_html=True
         )
 
         with st.form("volver_demoras"):
