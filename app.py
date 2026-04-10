@@ -534,11 +534,15 @@ else:
         
                     st.success("Registro guardado correctamente")
         
-           
             with st.form("volver_nodist"):
                 if st.form_submit_button("← Volver"):
                     st.session_state.pagina = "inicio"
                     st.rerun()
+                    
+        with st.form("volver_nodist"):
+            if st.form_submit_button("← Volver"):
+                st.session_state.pagina = "inicio"
+                st.rerun()
 
     # ======================
     # REPORTE TERCEROS
