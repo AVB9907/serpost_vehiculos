@@ -473,10 +473,69 @@ else:
     # NO DISTRIBUIBLES
     # ======================
 
-    elif st.session_state.pagina == "nodist":
+   elif st.session_state.pagina == "nodist":
 
-        st.markdown("## No distribuibles")
-
+        st.markdown("## No Distribuibles")
+    
+        from datetime import datetime
+    
+        MOTIVOS = [
+            "AUSENTE",
+            "DIRECCIÓN INSUFICIENTE",
+            "NO RECLAMADO",
+            "RECHAZADO",
+            "FALLECIDO",
+            "OTROS"
+        ]
+    
+        with st.form("form_nodist"):
+    
+            col1, col2 = st.columns(2)
+    
+            with col1:
+                admin = st.selectbox("Administración", ADMINISTRACIONES)
+                codigo = st.text_input("Código de envío")
+                destinatario = st.text_input("Destinatario")
+    
+            with col2:
+                direccion = st.text_input("Dirección")
+                motivo = st.selectbox("Motivo", MOTIVOS)
+                fecha = st.date_input("Fecha")
+    
+            obs = st.text_area("Observaciones")
+    
+            submitted = st.form_submit_button("Registrar")
+    
+            if submitted:
+    
+                if not codigo:
+                    st.error("El código es obligatorio")
+                    st.stop()
+    
+                existe = supabase.table("no_distribuibles") \
+                    .select("codigo_envio") \
+                    .eq("codigo_envio", codigo) \
+                    .execute()
+    
+                if existe.data:
+                    st.warning("Este envío ya fue registrado")
+                    st.stop()
+    
+                supabase.table("no_distribuibles").insert({
+                    "administracion": admin,
+                    "codigo_envio": codigo.strip(),
+                    "destinatario": destinatario.strip(),
+                    "direccion": direccion.strip(),
+                    "motivo": motivo,
+                    "fecha": str(fecha),
+                    "observacion": obs.strip(),
+                    "usuario": st.session_state.user["usuario"],
+                    "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                }).execute()
+    
+                st.success("Registro guardado correctamente")
+    
+       
         with st.form("volver_nodist"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
