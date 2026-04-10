@@ -454,7 +454,6 @@ else:
             frameborder="0"
             marginheight="0"
             marginwidth="0">
-            Cargando…
             </iframe>
             unsafe_allow_html=True
         )
