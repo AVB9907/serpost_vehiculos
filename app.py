@@ -305,7 +305,7 @@ else:
         st.markdown("## ADMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
         
-        col1, col2, col3 = st.columns([1,1,6])
+        col1, col2, col3 = st.columns([2,1,1])
 
         with col2:
             vista = st.radio(
