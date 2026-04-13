@@ -310,12 +310,12 @@ else:
         with col2:
             vista = st.radio(
                 "",
-                ["🔧 Operación", "📊 Dashboards"],
+                ["Operación", "Dashboards"],
                 horizontal=True
             )
         st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
-        if vista == "🔧 Operación":
+        if vista == "Operación":
             
             col1, col2, col3, col4, col5 = st.columns(5)
 
@@ -344,18 +344,18 @@ else:
                         if st.button("Registro terceros", use_container_width=True):
                             st.session_state.pagina = "RT"
                             st.rerun()
-        elif vista == "📊 Dashboards":
+        elif vista == "Dashboards":
 
-            st.markdown("## 📊 Centro de Control")
+            st.markdown("## Centro de Control")
 
             tab1, tab2, tab3 = st.tabs([
-                "📦 Envíos OPV",
-                "🚛 Operaciones",
-                "📈 BI"
+                "Envíos OPV",
+                "Operaciones",
+                "BI"
             ])
 
             with tab1:
-                st.write("Dashboard OPV funcionando 🚀")
+                st.write("Dashboard OPV funcionando")
     
             st.markdown('</div>', unsafe_allow_html=True)
             
