@@ -344,8 +344,19 @@ else:
                         if st.button("Registro terceros", use_container_width=True):
                             st.session_state.pagina = "RT"
                             st.rerun()
+        elif vista == "📊 Dashboards":
+
+            st.markdown("## 📊 Centro de Control")
+
+            tab1, tab2, tab3 = st.tabs([
+                "📦 Envíos OPV",
+                "🚛 Operaciones",
+                "📈 BI"
+            ])
+
+            with tab1:
+                st.write("Dashboard OPV funcionando 🚀")
     
-            
             st.markdown('</div>', unsafe_allow_html=True)
             
     # ======================
