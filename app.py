@@ -310,7 +310,7 @@ else:
         with col2:
             vista = st.radio(
                 "",
-                ["🔧 Operación", "📊 Dashboards"],
+                ["Operación", "Dashboards"],
                 horizontal=True
             )
 
