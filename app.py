@@ -304,6 +304,15 @@ else:
 
         st.markdown("## ADMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
+        
+        col1, col2, col3 = st.columns([1,2,1])
+
+        with col2:
+            vista = st.radio(
+                "",
+                ["🔧 Operación", "📊 Dashboards"],
+                horizontal=True
+            )
         st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
         col1, col2, col3, col4, col5 = st.columns(5)
