@@ -364,7 +364,16 @@ else:
                 "Envíos OPV",
                 "Operaciones"
             ])
-                
+
+            with tab1:
+
+            st.subheader("📊 Backlog")
+        
+            st.components.v1.iframe(
+                "https://lookerstudio.google.com/embed/reporting/0B_U5RNpwhcE6ckdmZEJ0ZDJXUnM/",
+                height=800
+            )
+                        
             st.markdown('</div>', unsafe_allow_html=True)
             
     # ======================
