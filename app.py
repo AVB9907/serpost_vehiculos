@@ -132,7 +132,11 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 div[data-testid="stRadio"] > div {
     display: flex;
     justify-content: center;
+    color: #f0f0f0 !important;
+    font-size: 20px !important;
+    text-align: center !important;
 }
+
 
 /* OPCIONES */
 div[role="radiogroup"] {
