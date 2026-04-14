@@ -263,7 +263,6 @@ if st.session_state.user is None:
             password = st.text_input("Contraseña", type="password")
 
             submitted = st.form_submit_button("Ingresar")
-                        st.rerun()
 
             if submitted:
                 res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
@@ -271,11 +270,15 @@ if st.session_state.user is None:
                 if len(res.data) > 0:
                     user = res.data[0]
 
-                    if user["password"] == password:
+                   if user["password"] == password:
                         st.session_state.user = user
+                    
                         if user["cambiar_password"]:
                             st.session_state.pagina = "cambiar_password"
-                            st.rerun()
+                        else:
+                            st.session_state.pagina = "inicio"
+                    
+                        st.rerun()
                     else:
                         st.error("Contraseña incorrecta")
                 else:
