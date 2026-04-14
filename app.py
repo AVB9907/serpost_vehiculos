@@ -383,24 +383,34 @@ else:
     
     elif st.session_state.pagina == "cambiar_password":
 
-        st.markdown("Cambiar contraseña")
-    
+    import time
+
+    st.markdown("## Cambiar contraseña")
+
+    with st.form("form_password"):
+
         nueva = st.text_input("Nueva contraseña", type="password")
         confirmar = st.text_input("Confirmar contraseña", type="password")
-    
-        if st.button("Guardar"):
+
+        submitted = st.form_submit_button("Guardar")
+
+        if submitted:
             if nueva != confirmar:
                 st.error("Las contraseñas no coinciden")
+
             elif len(nueva) < 6:
                 st.error("Mínimo 6 caracteres")
+
             else:
                 supabase.table("usuarios").update({
                     "password": nueva,
                     "cambiar_password": False
                 }).eq("id", st.session_state.user["id"]).execute()
-    
-                st.success("Contraseña actualizada")
-    
+
+                st.success("Contraseña actualizada correctamente")
+
+                time.sleep(1)
+
                 st.session_state.pagina = "inicio"
                 st.rerun()
                 
