@@ -263,6 +263,7 @@ if st.session_state.user is None:
             password = st.text_input("Contraseña", type="password")
 
             submitted = st.form_submit_button("Ingresar")
+                        st.rerun()
 
             if submitted:
                 res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
