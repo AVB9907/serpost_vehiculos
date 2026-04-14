@@ -137,7 +137,7 @@ div[data-testid="stRadio"] {
 /* OPCIONES */
 div[role="radiogroup"] {
     justify-content: center !important;
-    gap: 40px;
+    gap: 50px;
 }
 
 /* BOTONES */
