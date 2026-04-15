@@ -369,10 +369,7 @@ else:
             col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
-                if st.button(
-                    "Gestión de vehículos\n Control y seguimiento",
-                    use_container_width=True
-                ):
+                if st.button("Gestión de vehículos",use_container_width=True):
                     st.session_state.pagina = "vehiculos"
                     st.session_state.subpagina = "menu"
                     st.rerun()
