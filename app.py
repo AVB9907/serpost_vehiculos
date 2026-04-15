@@ -14,6 +14,30 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
+/* TEMP */
+
+div.stButton > button {
+    line-height: 1.6;
+    white-space: pre-line;
+    text-align: center;
+}
+
+div.stButton > button span {
+    display: inline-block;
+}
+
+/* PRIMERA LÍNEA (título) */
+div.stButton > button::first-line {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* SEGUNDA LÍNEA (descripción simulada) */
+div.stButton > button {
+    font-size: 15px;
+    font-weight: 400;
+}
+
 /* USERNAME */
 .sidebar-user {
     text-align: left !important;
@@ -351,7 +375,7 @@ else:
 
             with col1:
                 if st.button(
-                    "Gestión de vehículos\n\nControl y seguimiento",
+                    "Gestión de vehículos\nControl y seguimiento",
                     use_container_width=True
                 ):
                     st.session_state.pagina = "vehiculos"
