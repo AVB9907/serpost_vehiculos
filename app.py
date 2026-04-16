@@ -406,7 +406,7 @@ else:
             with tab1:
                 st.components.v1.iframe(
                     "https://datastudio.google.com/embed/reporting/99cc086d-b857-4291-8666-6f2b69437467/page/QvNcE",
-                    height=800
+                    height=1200
                 )
                         
             st.markdown('</div>', unsafe_allow_html=True)
