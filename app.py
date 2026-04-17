@@ -685,7 +685,6 @@ else:
                     admin_sel = st.selectbox("Administración", administraciones)
         
                     personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
-                    timer = time.sleep(0.5)
                     persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
         
                     mes_sel = st.selectbox("Mes", meses)
