@@ -687,7 +687,7 @@ else:
     
             personas = df[df["ADMINISTRACIÓN"] == admin_sel]["APELLIDOS Y NOMBRES"].dropna().unique()
             persona_sel = st.selectbox("Seleccionar persona", sorted(personas))
-            st.error("Contrato proximo a vencer")
+
     
             with st.form("registro_terceros"):
     
@@ -708,8 +708,9 @@ else:
                         }).execute()
     
                         st.success("Registro guardado correctamente")
-    
+            st.error("Contrato proximo a vencer")
         with st.form("volver_main"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+                
