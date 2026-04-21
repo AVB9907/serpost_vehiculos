@@ -449,12 +449,12 @@ else:
                     )
             
                     df.loc[
-                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("ONLINE")),
+                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("PAGO WEB")),
                         "ESTADO_REAL"
                     ] = "VENCIDO CON DEVOLUCIÓN"
             
                     df.loc[
-                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("OFICINA")),
+                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("PAGO OFICINA")),
                         "ESTADO_REAL"
                     ] = "VENCIDO SIN DEVOLUCIÓN"
             
