@@ -426,57 +426,80 @@ else:
             with tab2:
 
                 import pandas as pd
-
+            
                 st.markdown("## Envíos OPV")
-
+            
                 archivo = st.file_uploader("Sube Excel OPV", type=["xlsx"])
-
+            
                 if archivo:
-
+            
                     df = pd.read_excel(archivo)
                     df.columns = df.columns.str.strip().str.upper()
-
+            
                     df["MONTO_DINERO"] = pd.to_numeric(df["MONTO_DINERO"], errors="coerce")
-
+                    df["FECHA_ORDEN"] = pd.to_datetime(df["FECHA_ORDEN"], errors="coerce")
+            
+                    hoy = pd.Timestamp.today()
+            
+                    df["ESTADO_REAL"] = df["ESTADO_ORDEN"]
+            
+                    mask_vencido = (
+                        (df["ESTADO_ORDEN"] == "PENDIENTE") &
+                        ((hoy - df["FECHA_ORDEN"]).dt.days > 2)
+                    )
+            
+                    df.loc[
+                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("ONLINE")),
+                        "ESTADO_REAL"
+                    ] = "VENCIDO CON DEVOLUCIÓN"
+            
+                    df.loc[
+                        mask_vencido & (df["METODO_PAGO"].str.upper().str.contains("OFICINA")),
+                        "ESTADO_REAL"
+                    ] = "VENCIDO SIN DEVOLUCIÓN"
+            
                     total = len(df)
-                    finalizados = df[df["ESTADO_ORDEN"] == "FINALIZADO"].shape[0]
-                    pendientes = df[df["ESTADO_ORDEN"] == "PENDIENTE"].shape[0]
-                    monto_real = df[df["ESTADO_ORDEN"] == "FINALIZADO"]["MONTO_DINERO"].sum()
-
+                    finalizados = (df["ESTADO_REAL"] == "FINALIZADO").sum()
+                    pendientes = (df["ESTADO_REAL"] == "PENDIENTE").sum()
+                    vencidos = df["ESTADO_REAL"].str.contains("VENCIDO").sum()
+            
+                    ingreso_real = df[df["ESTADO_REAL"] == "FINALIZADO"]["MONTO_DINERO"].sum()
+            
                     col1, col2, col3, col4 = st.columns(4)
-
+            
                     col1.metric("Total órdenes", total)
                     col2.metric("Finalizados", finalizados)
                     col3.metric("Pendientes", pendientes)
-                    col4.metric("Ingreso real S/.", round(monto_real, 2))
-
+                    col4.metric("Vencidos", vencidos)
+            
+                    st.metric("Ingreso real S/.", round(ingreso_real, 2))
+            
                     conversion = finalizados / total if total > 0 else 0
                     st.metric("Tasa de conversión", f"{conversion:.2%}")
-
-                    df["FECHA_ORDEN"] = pd.to_datetime(df["FECHA_ORDEN"], errors="coerce")
-                    hoy = pd.Timestamp.today()
-
-                    df["ESTADO_REAL"] = df["ESTADO_ORDEN"]
-
-                    df.loc[
-                        (df["ESTADO_ORDEN"] == "PENDIENTE") &
-                        ((hoy - df["FECHA_ORDEN"]).dt.days > 2),
-                        "ESTADO_REAL"
-                    ] = "ABANDONADO"
-
-                    st.subheader("Estado real (con abandono)")
+                    
+                    st.subheader("Estado real de órdenes")
                     st.bar_chart(df["ESTADO_REAL"].value_counts())
-
-                    st.subheader("Estado original")
-                    st.bar_chart(df["ESTADO_ORDEN"].value_counts())
-
+            
                     st.subheader("Tipo de orden vs estado")
-                    tabla = df.groupby(["TIPO_ORDEN", "ESTADO_ORDEN"]).size().unstack().fillna(0)
+                    tabla = df.groupby(["TIPO_ORDEN", "ESTADO_REAL"]).size().unstack().fillna(0)
                     st.dataframe(tabla)
-
-                    st.subheader("Detalle")
-                    st.dataframe(df)
-
+                    
+                    st.subheader("Órdenes por administración")
+                    st.bar_chart(df["ADMINISTRACIONES_OFICINA"].value_counts())
+                    
+                    columnas_visibles = [
+                        "ORDEN_ID",
+                        "TIPO_ORDEN",
+                        "FECHA_ORDEN",
+                        "ESTADO_REAL",
+                        "METODO_PAGO",
+                        "ADMINISTRACIONES_OFICINA",
+                        "MONTO_DINERO"
+                    ]
+            
+                    st.subheader("Detalle de órdenes")
+                    st.dataframe(df[columnas_visibles])
+                    
             # ======================
             # OPERACIONES
             # ======================
